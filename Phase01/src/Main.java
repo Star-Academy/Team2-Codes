@@ -9,8 +9,9 @@ public class Main {
         System.out.println(fileReader.getNamesOfFiles());
         ArrayList<Document> documents = fileReader.createDocumentFromFolder();
         Document.setAllDocumnets(documents);
-        documents.get(0).tokenizeContent();
-        System.out.println(documents.get(0).getTokenizedWords());
+        Document.tokenizeAllDocuments();
+//        documents.get(0).tokenizeContent();
+//        System.out.println(documents.get(0).getTokenizedWords());
 
     }
 }

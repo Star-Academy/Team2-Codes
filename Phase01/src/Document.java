@@ -21,6 +21,13 @@ public class Document {
         }
     }
 
+    public static void tokenizeAllDocuments()
+    {
+        for (Document doc : getAllDocumnets()){
+            doc.tokenizeContent();
+        }
+    }
+
     public String getId() {
         return this.id;
     }
