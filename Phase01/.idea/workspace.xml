@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ba00aa6-7c0b-4850-ba5a-378680e66e9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Phase01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +14,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Amirmahdi Namjoo &lt;amirm137878@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -66,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596282072753</updated>
       <workItem from="1596282076899" duration="408000" />
-      <workItem from="1596282639393" duration="366000" />
+      <workItem from="1596282639393" duration="3044000" />
     </task>
     <servers />
   </component>
@@ -78,26 +81,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1596282445222" />
+    <state x="730" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1596285596212">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="730" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596285596212" />
     <state x="693" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596282987689">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596282987689" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1596282484230">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1596285921046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596282484230" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1596282484230">
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1596285921046" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1596285782949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596282484230" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1596282484230">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596285782949" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1596285782948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596282484230" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1596282484230">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596285782948" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1596285782948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596282484230" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596285782948" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1596285782949">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596285782949" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1596282484231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -114,10 +125,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596282484231" />
+    <state x="724" y="224" key="VCS.ChangeListViewerDialog" timestamp="1596285988983">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="724" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596285988983" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596285927010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1596285927010" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1596282742986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596282742986" />
+    <state x="765" y="384" key="git4idea.rebase.GitRebaseDialog" timestamp="1596285995098">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="384" key="git4idea.rebase.GitRebaseDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596285995098" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596282482277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -128,12 +151,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FileReader.java</url>
-          <line>16</line>
+          <line>18</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FileReader.java</url>
-          <line>17</line>
+          <line>19</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
