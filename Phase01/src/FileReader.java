@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FileReader {
 
@@ -22,9 +24,35 @@ public class FileReader {
         }
     }
 
-    public void readOneFile(String address){
-        File file = new File(address);
-        
+    public ArrayList<Document> createDocumentFromFolder() {
+        ArrayList<Document> documents = new ArrayList<>();
+        if (namesOfFiles.isEmpty()) {
+            listAllFilesInFolder();
+        }
+        for (String filename : getNamesOfFiles()) {
+            String fileContent = readOneFile(filename);
+            Document document = new Document(filename, fileContent);
+            documents.add(document);
+        }
+        return documents;
+    }
+
+    public String readOneFile(String address) {
+        try {
+            File file = new File(getFolderAddress() + "/" + address);
+            Scanner fileReader = new Scanner(file);
+            StringBuilder stringBuilder = new StringBuilder();
+            while (fileReader.hasNext()) {
+                String data = fileReader.nextLine();
+                stringBuilder.append(data.toLowerCase());
+            }
+            fileReader.close();
+            return stringBuilder.toString();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return "";
 
     }
 
