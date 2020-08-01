@@ -4,7 +4,6 @@
     <list default="true" id="8ba00aa6-7c0b-4850-ba5a-378680e66e9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Document.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596282072753</updated>
       <workItem from="1596282076899" duration="408000" />
-      <workItem from="1596282639393" duration="3358000" />
+      <workItem from="1596282639393" duration="3740000" />
     </task>
     <task id="LOCAL-00001" summary="FileReader and Document probably complete">
       <created>1596285922185</created>

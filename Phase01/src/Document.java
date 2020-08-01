@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class Document {
@@ -6,12 +7,21 @@ public class Document {
     private static ArrayList<Document> allDocumnets = new ArrayList<>();
     private String id;
     private String content;
-    private ArrayList<String> tokenizedWords;
+    private HashSet<String> tokenizedWords;
 
     public Document(String id, String content) {
         setId(id);
         setContent(content);
-        setTokenizedWords(new ArrayList<>());
+        setTokenizedWords(new HashSet<>());
+    }
+
+    public Document findDocumentById(String id) {
+        for (Document doc : getAllDocumnets()) {
+            if (doc != null && doc.getId().equals(id)) {
+                return doc;
+            }
+        }
+        return null;
     }
 
     public void tokenizeContent() {
@@ -21,9 +31,8 @@ public class Document {
         }
     }
 
-    public static void tokenizeAllDocuments()
-    {
-        for (Document doc : getAllDocumnets()){
+    public static void tokenizeAllDocuments() {
+        for (Document doc : getAllDocumnets()) {
             doc.tokenizeContent();
         }
     }
@@ -52,11 +61,11 @@ public class Document {
         Document.allDocumnets = allDocumnets;
     }
 
-    public ArrayList<String> getTokenizedWords() {
+    public HashSet<String> getTokenizedWords() {
         return tokenizedWords;
     }
 
-    public void setTokenizedWords(ArrayList<String> tokenizedWords) {
+    public void setTokenizedWords(HashSet<String> tokenizedWords) {
         this.tokenizedWords = tokenizedWords;
     }
 
