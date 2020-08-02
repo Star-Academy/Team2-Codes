@@ -15,17 +15,21 @@ public class Document {
         setTokenizedWords(new HashSet<>());
     }
 
-    public Document findDocumentById(String id) {
+
+
+
+    public static Document findDocumentById(String id) {
         for (Document doc : getAllDocumnets()) {
             if (doc != null && doc.getId().equals(id)) {
                 return doc;
+
             }
         }
         return null;
     }
 
     public void tokenizeContent() {
-        StringTokenizer stringTokenizer = new StringTokenizer(getContent(), " ,.;-'()\"");
+        StringTokenizer stringTokenizer = new StringTokenizer(getContent(), " ,.;-'()\"@[]><");
         while (stringTokenizer.hasMoreTokens()) {
             getTokenizedWords().add(stringTokenizer.nextToken());
         }
@@ -71,9 +75,6 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document{" +
-                "id='" + id + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+        return "Document{" + "id='" + id + '\'' + ", content='" + content + '\'' + '}';
     }
 }
