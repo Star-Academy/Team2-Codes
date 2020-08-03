@@ -1,66 +1,68 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FileReader {
 
     private String folderAddress;
 
-    private ArrayList<String> namesOfFiles;
+    private List<String> namesOfFiles;
 
-    public FileReader(String address) {
+    public FileReader(final String address) {
         setFolderAddress(address);
         setNamesOfFiles(new ArrayList<>());
     }
 
     public void listAllFilesInFolder() {
-        File folder = new File(folderAddress);
-        File[] allFiles = folder.listFiles();
-        for (File file : allFiles) {
-            if (file.isFile()) {
-                getNamesOfFiles().add(file.getName());
+        final File folder = new File(getFolderAddress());
+        final File[] allFiles = folder.listFiles();
+        if (allFiles != null) {
+            for (final File file : allFiles) {
+                if (file.isFile()) {
+                    getNamesOfFiles().add(file.getName());
+                }
             }
         }
     }
 
-    public ArrayList<Document> createDocumentFromFolder() {
-        ArrayList<Document> documents = new ArrayList<>();
-        if (namesOfFiles.isEmpty()) {
+    public List<Document> createDocumentFromFolder() {
+        final List<Document> documents = new ArrayList<>();
+        if (getNamesOfFiles().isEmpty()) {
             listAllFilesInFolder();
         }
-        for (String filename : getNamesOfFiles()) {
-            String fileContent = readOneFile(filename);
-            Document document = new Document(filename, fileContent);
+        for (final String filename : getNamesOfFiles()) {
+            final String fileContent = readOneFile(filename);
+            final Document document = new Document(filename, fileContent);
             documents.add(document);
         }
         return documents;
     }
 
-    public String readOneFile(String address) {
+    public String readOneFile(final String address) {
+        final StringBuilder stringBuilder = new StringBuilder("");
         try {
-            File file = new File(getFolderAddress() + "/" + address);
-            Scanner fileReader = new Scanner(file);
-            StringBuilder stringBuilder = new StringBuilder();
+            final File file = new File(getFolderAddress() + "/" + address);
+            final Scanner fileReader = new Scanner(file);
             while (fileReader.hasNext()) {
-                String data = fileReader.nextLine();
+                final String data = fileReader.nextLine();
                 stringBuilder.append(data.toLowerCase());
             }
             fileReader.close();
-            return stringBuilder.toString();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+        } catch (final FileNotFoundException e) {
+            System.err.println("File Not Found");
             e.printStackTrace();
         }
-        return "";
+        return stringBuilder.toString();
 
     }
 
-    public ArrayList<String> getNamesOfFiles() {
+    public List<String> getNamesOfFiles() {
         return this.namesOfFiles;
     }
 
-    public void setNamesOfFiles(ArrayList<String> namesOfFiles) {
+    public void setNamesOfFiles(final List<String> namesOfFiles) {
         this.namesOfFiles = namesOfFiles;
     }
 
@@ -68,7 +70,7 @@ public class FileReader {
         return this.folderAddress;
     }
 
-    public void setFolderAddress(String folderAddress) {
+    public void setFolderAddress(final String folderAddress) {
         this.folderAddress = folderAddress;
     }
 

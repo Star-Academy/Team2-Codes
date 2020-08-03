@@ -1,42 +1,36 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Document {
 
-    private static ArrayList<Document> allDocumnets = new ArrayList<>();
     private String id;
     private String content;
-    private HashSet<String> tokenizedWords;
+    private Set<String> tokenizedWords;
 
-    public Document(String id, String content) {
+    public Document(final String id, final String content) {
         setId(id);
         setContent(content);
         setTokenizedWords(new HashSet<>());
     }
 
-
-
-
-    public static Document findDocumentById(String id) {
-        for (Document doc : getAllDocumnets()) {
+    public static Document findDocumentById(final String id, final List<Document> documents) {
+        Document document = null;
+        for (final Document doc : documents) {
             if (doc != null && doc.getId().equals(id)) {
-                return doc;
-
+                document = doc;
             }
         }
-        return null;
+        return document;
     }
 
     public void tokenizeContent() {
-        StringTokenizer stringTokenizer = new StringTokenizer(getContent(), " ,.;-'()\"@[]><");
+        final StringTokenizer stringTokenizer = new StringTokenizer(getContent(), " ,.;-'()\"@[]><");
         while (stringTokenizer.hasMoreTokens()) {
             getTokenizedWords().add(stringTokenizer.nextToken());
         }
     }
 
-    public static void tokenizeAllDocuments() {
-        for (Document doc : getAllDocumnets()) {
+    public static void tokenizeAllDocuments(final List<Document> documents) {
+        for (final Document doc : documents) {
             doc.tokenizeContent();
         }
     }
@@ -45,7 +39,7 @@ public class Document {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -53,23 +47,15 @@ public class Document {
         return this.content;
     }
 
-    public void setContent(String content) {
+    public void setContent(final String content) {
         this.content = content;
     }
 
-    public static ArrayList<Document> getAllDocumnets() {
-        return allDocumnets;
-    }
-
-    public static void setAllDocumnets(ArrayList<Document> allDocumnets) {
-        Document.allDocumnets = allDocumnets;
-    }
-
-    public HashSet<String> getTokenizedWords() {
+    public Set<String> getTokenizedWords() {
         return tokenizedWords;
     }
 
-    public void setTokenizedWords(HashSet<String> tokenizedWords) {
+    public void setTokenizedWords(final Set<String> tokenizedWords) {
         this.tokenizedWords = tokenizedWords;
     }
 
