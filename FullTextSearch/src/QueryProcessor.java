@@ -33,38 +33,44 @@ public class QueryProcessor {
 
         // Operation Precedence: AND (Without Signs) -> OR (+ Signs) -> Subtract (-
         // Signs)
-        result = operationPerformerOnSet(result, andStrings, SetOperationType.AND);
-        result = operationPerformerOnSet(result, orStrings, SetOperationType.OR);
-        result = operationPerformerOnSet(result, subtractStrings, SetOperationType.SUBTRACT);
+        performAllOperations(result, andStrings, orStrings, subtractStrings);
 
         return new ArrayList<>(result);
     }
 
-    private Set<String> operationPerformerOnSet(final Set<String> base, final List<String> queryWords,
+    private void performAllOperations(Set<String> result, List<String> andStrings, List<String> orStrings, List<String> subtractStrings) {
+        operationPerformerOnSet(result, andStrings, SetOperationType.AND);
+        operationPerformerOnSet(result, orStrings, SetOperationType.OR);
+        operationPerformerOnSet(result, subtractStrings, SetOperationType.SUBTRACT);
+    }
+
+    private void operationPerformerOnSet(Set<String> result, final List<String> queryWords,
             final SetOperationType operationType) {
-        final Set<String> result = new HashSet<>(base);
         if (queryWords != null && !queryWords.isEmpty()) {
 
             for (final String word : queryWords) {
                 final Set<String> wordSet = getInvertedIndex().getIndices().get(word);
                 if (wordSet != null && !wordSet.isEmpty()) {
-                    switch (operationType) {
-                        case OR:
-                            result.addAll(wordSet);
-                            break;
-                        case AND:
-                            result.retainAll(wordSet);
-                            break;
-                        case SUBTRACT:
-                            result.removeAll(wordSet);
-                            break;
-                        default:
-                            break;
-                    }
+                    doOperatrion(result, wordSet, operationType);
                 }
             }
         }
-        return result;
+    }
+
+    private void doOperatrion (Set<String> result, Set<String> wordSet, SetOperationType operationType) {
+        switch (operationType) {
+            case OR:
+                result.addAll(wordSet);
+                break;
+            case AND:
+                result.retainAll(wordSet);
+                break;
+            case SUBTRACT:
+                result.removeAll(wordSet);
+                break;
+            default:
+                break;
+        }
     }
 
     private List<Document> getDocuments() {
