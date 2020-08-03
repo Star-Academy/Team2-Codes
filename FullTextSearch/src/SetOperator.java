@@ -7,19 +7,11 @@ public abstract class SetOperator {
             for (final String word : queryWords) {
                 final Set<String> wordSet = invertedIndex.getIndices().get(word);
                 if (wordSet != null && !wordSet.isEmpty()) {
-                    specificOpeartion(result, wordSet);
+                    specificOperation(result, wordSet);
                 }
             }
         }
     }
 
-    protected abstract void specificOpeartion(Set<String> result, final Set<String> wordSet);
+    protected abstract void specificOperation(Set<String> result, final Set<String> wordSet);
 }
-
-
-
-
-
-
-
-
