@@ -31,47 +31,18 @@ public class QueryProcessor {
             result = new HashSet<>();
         }
 
-        // Operation Precedence: AND (Without Signs) -> OR (+ Signs) -> Subtract (-
-        // Signs)
+        // Operation Precedence: AND (Without Signs) -> OR (+ Signs) -> Subtract (- Signs)
         performAllOperations(result, andStrings, orStrings, subtractStrings);
 
         return new ArrayList<>(result);
     }
 
     private void performAllOperations(Set<String> result, List<String> andStrings, List<String> orStrings, List<String> subtractStrings) {
-        operationPerformerOnSet(result, andStrings, SetOperationType.AND);
-        operationPerformerOnSet(result, orStrings, SetOperationType.OR);
-        operationPerformerOnSet(result, subtractStrings, SetOperationType.SUBTRACT);
+        new AndSetOperator().operate(result, andStrings, getInvertedIndex());
+        new OrSetOperator().operate(result, orStrings, getInvertedIndex());
+        new SubtractSetOperator().operate(result, subtractStrings, getInvertedIndex());
     }
 
-    private void operationPerformerOnSet(Set<String> result, final List<String> queryWords,
-            final SetOperationType operationType) {
-        if (queryWords != null && !queryWords.isEmpty()) {
-
-            for (final String word : queryWords) {
-                final Set<String> wordSet = getInvertedIndex().getIndices().get(word);
-                if (wordSet != null && !wordSet.isEmpty()) {
-                    doOperatrion(result, wordSet, operationType);
-                }
-            }
-        }
-    }
-
-    private void doOperatrion (Set<String> result, Set<String> wordSet, SetOperationType operationType) {
-        switch (operationType) {
-            case OR:
-                result.addAll(wordSet);
-                break;
-            case AND:
-                result.retainAll(wordSet);
-                break;
-            case SUBTRACT:
-                result.removeAll(wordSet);
-                break;
-            default:
-                break;
-        }
-    }
 
     private List<Document> getDocuments() {
         return documents;
@@ -91,6 +62,3 @@ public class QueryProcessor {
 
 }
 
-enum SetOperationType {
-    AND, OR, SUBTRACT
-}

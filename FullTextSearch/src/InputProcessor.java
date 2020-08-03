@@ -15,9 +15,9 @@ public class InputProcessor {
     }
 
     public void processInput() {
-        final List<String> and = extractAllQueryWords(getInputString());
-        final List<String> or = extractOrStatement(getInputString());
-        final List<String> subs = extractSubStatement(getInputString());
+        final List<String> and = extractAllQueryWords();
+        final List<String> or = extractOrStatement();
+        final List<String> subs = extractSubStatement();
         and.removeAll(or);
         and.removeAll(subs);
         setAndStrings(and);
@@ -25,7 +25,7 @@ public class InputProcessor {
         setSubtractString(subs);
     }
 
-    public static List<String> wordExtarctor(final Matcher matcher) {
+    public List<String> wordExtarctor(final Matcher matcher) {
         final List<String> result = new ArrayList<>();
         while (matcher.find()) {
             result.add(matcher.group(1));
@@ -33,21 +33,21 @@ public class InputProcessor {
         return result;
     }
 
-    public static List<String> extractAllQueryWords(final String input) {
+    public List<String> extractAllQueryWords() {
         final Pattern pattern = Pattern.compile("(\\w+)");
-        final Matcher matcher = pattern.matcher(input);
+        final Matcher matcher = pattern.matcher(getInputString());
         return wordExtarctor(matcher);
     }
 
-    public static List<String> extractOrStatement(final String input) {
+    public List<String> extractOrStatement() {
         final Pattern pattern = Pattern.compile("\\+(\\w+)");
-        final Matcher matcher = pattern.matcher(input);
+        final Matcher matcher = pattern.matcher(getInputString());
         return wordExtarctor(matcher);
     }
 
-    public static List<String> extractSubStatement(final String input) {
+    public List<String> extractSubStatement() {
         final Pattern pattern = Pattern.compile("-(\\w+)");
-        final Matcher matcher = pattern.matcher(input);
+        final Matcher matcher = pattern.matcher(getInputString());
         return wordExtarctor(matcher);
     }
 

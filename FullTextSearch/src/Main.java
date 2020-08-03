@@ -11,8 +11,8 @@ public class Main {
 
         String address = "./EnglishData";
         FileReader fileReader = new FileReader(address);
-        List<Document> documents = fileReader.createDocumentFromFolder();
-        Document.tokenizeAllDocuments(documents);
+        List<Document> documents = fileReader.getDocuments();
+        Tokenizer.tokenizeAllDocuments(documents);
         QueryProcessor queryProcessor = new QueryProcessor(documents);
         Scanner scanner = new Scanner(System.in);
         while (true) {

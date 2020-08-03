@@ -17,23 +17,12 @@ public class Document {
         for (final Document doc : documents) {
             if (doc != null && doc.getId().equals(id)) {
                 document = doc;
+                break;
             }
         }
         return document;
     }
 
-    public void tokenizeContent() {
-        final StringTokenizer stringTokenizer = new StringTokenizer(getContent(), " ,.;-'()\"@[]><");
-        while (stringTokenizer.hasMoreTokens()) {
-            getTokenizedWords().add(stringTokenizer.nextToken());
-        }
-    }
-
-    public static void tokenizeAllDocuments(final List<Document> documents) {
-        for (final Document doc : documents) {
-            doc.tokenizeContent();
-        }
-    }
 
     public String getId() {
         return this.id;

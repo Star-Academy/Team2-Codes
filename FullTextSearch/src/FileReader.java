@@ -10,9 +10,11 @@ public class FileReader {
 
     private List<String> namesOfFiles;
 
+
     public FileReader(final String address) {
         setFolderAddress(address);
         setNamesOfFiles(new ArrayList<>());
+        listAllFilesInFolder();
     }
 
     public void listAllFilesInFolder() {
@@ -27,7 +29,7 @@ public class FileReader {
         }
     }
 
-    public List<Document> createDocumentFromFolder() {
+    public List<Document> getDocuments() {
         final List<Document> documents = new ArrayList<>();
         if (getNamesOfFiles().isEmpty()) {
             listAllFilesInFolder();

@@ -19,7 +19,7 @@ public class InvertedIndex {
 
     public void addAllWordsOfADocument(final Document document) {
         if (document.getTokenizedWords() == null) {
-            document.tokenizeContent();
+            document.setTokenizedWords(Tokenizer.tokenizeContent(document.getContent()));
         }
         for (final String word : document.getTokenizedWords()) {
             addWord(word, document);
