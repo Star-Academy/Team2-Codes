@@ -39,7 +39,7 @@ public class QueryProcessor {
             result = new HashSet<>();
         }
 
-        // Operation Precedence: AND (Without Signs) -> Or (+ Signs) ->  Subtract (- Signs)
+        // Operation Precedence: AND (Without Signs) -> Subtract (- Signs) -> Or (+ Signs)
         result= performAllOperations(result, andStrings, orStrings, subtractStrings);
 
         return new ArrayList<>(result);
@@ -47,8 +47,8 @@ public class QueryProcessor {
 
     private Set<String> performAllOperations(Set<String> result, List<String> andStrings, List<String> orStrings, List<String> subtractStrings) {
         result = new AndSetOperator().operate(result, andStrings, getInvertedIndex());
-        result = new OrSetOperator().operate(result, orStrings, getInvertedIndex());
         result = new SubtractSetOperator().operate(result, subtractStrings, getInvertedIndex());
+        result = new OrSetOperator().operate(result, orStrings, getInvertedIndex());
         return result;
     }
 
