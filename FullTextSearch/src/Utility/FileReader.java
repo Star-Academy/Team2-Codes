@@ -1,3 +1,7 @@
+package Utility;
+
+import Model.Document;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

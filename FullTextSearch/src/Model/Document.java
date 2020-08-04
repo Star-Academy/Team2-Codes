@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.*;
 
 public class Document {
@@ -50,6 +52,6 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document{" + "id='" + id + '\'' + ", content='" + content + '\'' + '}';
+        return "Model.Document{" + "id='" + id + '\'' + ", content='" + content + '\'' + '}';
     }
 }

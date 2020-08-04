@@ -1,3 +1,9 @@
+import Model.Document;
+import Utility.FileReader;
+import Utility.QueryProcessor;
+import Utility.Tokenizer;
+import View.DocPresenter;
+
 import java.util.*;
 
 
@@ -5,20 +11,21 @@ public class Main {
 
 
     public static void main(String[] args) {
-        //Test Input Output:
-        // hello -world -may -> 59463, 59055, 59583, 59134, 59381, 59295, 59615, 58815, 58814
-        // hello -world -may +albnyvms -> 59615, 59463, 58077, 59055, 59583, 59134, 58815, 59381, 58814, 58050, 59384, 59295
 
         String address = "./EnglishData";
-        FileReader fileReader = new FileReader(address);
-        List<Document> documents = fileReader.getDocuments();
-        Tokenizer.tokenizeAllDocuments(documents);
-        QueryProcessor queryProcessor = new QueryProcessor(documents);
+        QueryProcessor queryProcessor = preparingData(address);
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String query = scanner.nextLine().toLowerCase();
             List<String> docIds = queryProcessor.advancedQuery(query);
-            System.out.println(docIds);
+            DocPresenter.showSortedDocIds(docIds);
         }
+    }
+
+    public static QueryProcessor preparingData(String address) {
+        FileReader fileReader = new FileReader(address);
+        List<Document> documents = fileReader.getDocuments();
+        Tokenizer.tokenizeAllDocuments(documents);
+        return new QueryProcessor(documents);
     }
 }

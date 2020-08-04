@@ -1,3 +1,11 @@
+package Utility;
+
+import Model.Document;
+import Model.InvertedIndex;
+import SetOperators.AndSetOperator;
+import SetOperators.OrSetOperator;
+import SetOperators.SubtractSetOperator;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,16 +39,17 @@ public class QueryProcessor {
             result = new HashSet<>();
         }
 
-        // Operation Precedence: AND (Without Signs) -> OR (+ Signs) -> Subtract (- Signs)
-        performAllOperations(result, andStrings, orStrings, subtractStrings);
+        // Operation Precedence: AND (Without Signs) -> Or (+ Signs) ->  Subtract (- Signs)
+        result= performAllOperations(result, andStrings, orStrings, subtractStrings);
 
         return new ArrayList<>(result);
     }
 
-    private void performAllOperations(Set<String> result, List<String> andStrings, List<String> orStrings, List<String> subtractStrings) {
-        new AndSetOperator().operate(result, andStrings, getInvertedIndex());
-        new OrSetOperator().operate(result, orStrings, getInvertedIndex());
-        new SubtractSetOperator().operate(result, subtractStrings, getInvertedIndex());
+    private Set<String> performAllOperations(Set<String> result, List<String> andStrings, List<String> orStrings, List<String> subtractStrings) {
+        result = new AndSetOperator().operate(result, andStrings, getInvertedIndex());
+        result = new OrSetOperator().operate(result, orStrings, getInvertedIndex());
+        result = new SubtractSetOperator().operate(result, subtractStrings, getInvertedIndex());
+        return result;
     }
 
 

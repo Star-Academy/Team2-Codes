@@ -1,3 +1,7 @@
+package Model;
+
+import Utility.Tokenizer;
+
 import java.util.*;
 
 public class InvertedIndex {
