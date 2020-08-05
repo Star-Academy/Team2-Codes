@@ -43,6 +43,7 @@ public class FileReaderTest {
         expectedDocuments.add(new Document("3.txt", "hello world"));
         expectedDocuments.add(new Document("4.txt", "albnyvms world may"));
 
+        fileReader.getNamesOfFiles().clear();
         List<Document> actualDocuments = fileReader.getDocuments();
 
         assertThat(expectedDocuments).containsAll(actualDocuments);

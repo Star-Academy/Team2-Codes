@@ -37,12 +37,19 @@ public class QueryProcessorTest {
         
         assertEquals(expectedDocIds, actualDocIds);
 
+        //another test with minus sign
         input = "hello -may";
         expectedDocIds = new HashSet<>(Arrays.asList("1.txt", "3.txt"));
 
         actualDocIds = new HashSet<>(queryProcessor.advancedQuery(input));
         
         assertEquals(expectedDocIds, actualDocIds);
+    }
+
+    @Test
+    public void testAdvanceQueryWithNoResult() {
+        String input = "nothing";
+        assertEquals(0, queryProcessor.advancedQuery(input).size());
     }
      
 }
