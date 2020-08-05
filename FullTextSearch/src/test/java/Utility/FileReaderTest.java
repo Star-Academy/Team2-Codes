@@ -1,6 +1,8 @@
 package Utility;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.*;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +10,6 @@ import java.util.List;
 
 
 import Model.Document;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +45,7 @@ public class FileReaderTest {
 
         List<Document> actualDocuments = fileReader.getDocuments();
 
-        assertEquals(expectedDocuments, actualDocuments);
+        assertThat(expectedDocuments).containsAll(actualDocuments);
     }
 
     @Test
