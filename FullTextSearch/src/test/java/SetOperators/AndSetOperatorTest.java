@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AndSetOperatorTest {
     @Test
-    public void testAndWorksFine() {
+    public void simpleAndFunctionalityTest() {
         Set<String> result = new HashSet<>();
         Set<String> andMask = new HashSet<>();
         result.addAll(Arrays.asList("a", "b", "c"));
