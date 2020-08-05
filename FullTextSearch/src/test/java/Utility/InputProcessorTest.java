@@ -7,10 +7,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+
 
 import Utility.InputProcessor;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class InputProcessorTest {
     private final String input = "hello +word +test -may -have JUnit";
@@ -19,7 +21,7 @@ public class InputProcessorTest {
     private List<String> expectedSubStrings;
     private InputProcessor processor;
 
-    @Before
+    @BeforeEach
     public void initialize() {
         expectedAndStrings = new ArrayList<>(Arrays.asList("hello", "JUnit"));
         expectedOrStrings = new ArrayList<>(Arrays.asList("word", "test"));

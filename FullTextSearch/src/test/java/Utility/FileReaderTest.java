@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
 
 import Model.Document;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class FileReaderTest {
     private final String path = "./SmallEnglishData";
@@ -17,7 +18,7 @@ public class FileReaderTest {
     private final String availableFileName = "1.txt";
     private FileReader fileReader;
     
-    @Before
+    @BeforeEach
     @Test
     public void initialize() {
         fileReader = new FileReader(path);

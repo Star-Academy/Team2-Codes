@@ -1,24 +1,26 @@
 package Utility;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
+
 
 import Model.Document;
 import Utility.FileReader;
 import Utility.QueryProcessor;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class QueryProcessorTest {
     private final String path = "./SmallEnglishData";
     private QueryProcessor queryProcessor;
     
-    @Before
+    @BeforeEach
     public void initialize() {
         FileReader fileReader = new FileReader(path);
         List<Document> documents = fileReader.getDocuments();
