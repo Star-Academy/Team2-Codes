@@ -10,18 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class InvertedIndexTest {
 
     private static List<Document> documentList;
+    private static InvertedIndex invertedIndex;
 
     @BeforeAll
     public static void initialize() {
         Document document = new Document("1", "hello world");
         Document document2 = new Document("2", "hello man");
         Document document3 = new Document("3", "man world");
+        invertedIndex = new InvertedIndex();
         documentList = new ArrayList<>(Arrays.asList(document, document2, document3));
     }
 
     @Test
     public void addWordTest() {
-        InvertedIndex invertedIndex = new InvertedIndex();
         invertedIndex.addWord("hello", documentList.get(0));
         org.assertj.core.api.Assertions.
                 assertThat(invertedIndex.getIndices().get("hello")).containsOnly("1");
@@ -29,14 +30,12 @@ class InvertedIndexTest {
 
     @Test
     public void addWordTestOfNonExistingWord() {
-        InvertedIndex invertedIndex = new InvertedIndex();
         invertedIndex.addWord("hello", documentList.get(0));
         assertNull(invertedIndex.getIndices().get("man"));
     }
 
     @Test
-    public void addWordsOfADocumentTest(){
-        InvertedIndex invertedIndex = new InvertedIndex();
+    public void addWordsOfADocumentTest() {
         invertedIndex.addAllWordsOfADocument(documentList.get(0));
         org.assertj.core.api.Assertions.
                 assertThat(invertedIndex.getIndices().get("hello")).containsOnly("1");
@@ -46,15 +45,14 @@ class InvertedIndexTest {
     }
 
     @Test
-    public void addWordsOfMultipleDocuments(){
-        InvertedIndex invertedIndex = new InvertedIndex();
+    public void addWordsOfMultipleDocuments() {
         invertedIndex.addWordsOfMultipleDocuments(documentList);
         org.assertj.core.api.Assertions.
-                assertThat(invertedIndex.getIndices().get("hello")).containsOnly("1" , "2");
+                assertThat(invertedIndex.getIndices().get("hello")).containsOnly("1", "2");
         org.assertj.core.api.Assertions.
-                assertThat(invertedIndex.getIndices().get("world")).containsOnly("1" , "3");
+                assertThat(invertedIndex.getIndices().get("world")).containsOnly("1", "3");
         org.assertj.core.api.Assertions.
-                assertThat(invertedIndex.getIndices().get("man")).containsOnly("2" , "3");
+                assertThat(invertedIndex.getIndices().get("man")).containsOnly("2", "3");
 
 
     }
@@ -62,7 +60,6 @@ class InvertedIndexTest {
 
     @Test
     public void getSetIndicesTest() {
-        InvertedIndex invertedIndex = new InvertedIndex();
         Map<String, Set<String>> map = new HashMap<>();
         map.put("Hello", new HashSet<>(Arrays.asList("1", "2")));
         invertedIndex.setIndices(map);
