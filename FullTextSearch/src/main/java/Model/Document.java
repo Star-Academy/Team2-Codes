@@ -54,4 +54,13 @@ public class Document {
     public String toString() {
         return "Model.Document{" + "id='" + id + '\'' + ", content='" + content + '\'' + '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Document) {
+            Document otherDoc = (Document) obj;
+            return otherDoc.getId().equals(this.id) & otherDoc.getContent().equals(this.content);
+        }
+        return false;
+    }
 }
