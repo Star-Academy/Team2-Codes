@@ -2,30 +2,30 @@ package Utility;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import java.util.*;
 
 
 import Model.Document;
-import Utility.FileReader;
-import Utility.QueryProcessor;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class QueryProcessorTest {
-    private final String path = "./SmallEnglishData";
     private QueryProcessor queryProcessor;
     
     @BeforeEach
     public void initialize() {
-        FileReader fileReader = new FileReader(path);
-        List<Document> documents = fileReader.getDocuments();
+        List<Document> documents = makeSampleDocuments();
         Tokenizer.tokenizeAllDocuments(documents);
         queryProcessor = new QueryProcessor(documents);
+    }
+
+    private ArrayList<Document> makeSampleDocuments() {
+        ArrayList<Document> documents = new ArrayList<>();
+        documents.add(new Document("1.txt", "hello"));
+        documents.add(new Document("2.txt", "hello may"));
+        documents.add(new Document("3.txt", "hello world"));
+        documents.add(new Document("4.txt", "albnyvms world may"));
+        return documents;
     }
 
     @Test
