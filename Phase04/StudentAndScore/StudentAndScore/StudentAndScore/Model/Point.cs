@@ -1,4 +1,4 @@
-﻿namespace StudentAndScore
+﻿namespace StudentAndScore.Model
 {
     public class Point
     {
