@@ -1,5 +1,6 @@
 ﻿using StudentAndScore.Model;
-using StudentAndScore.Utility;
+using StudentAndScore.Utility.Query;
+using StudentAndScore.Utility.Readers;
 using StudentAndScore.View;
 
 namespace StudentAndScore
@@ -12,12 +13,16 @@ namespace StudentAndScore
 
         static void Main(string[] args)
         {
-            var students = FileReader.GetListFromJsonFile<Student>(StudentJsonPath);
-            var points = FileReader.GetListFromJsonFile<Point>(ScoreJsonPath);
-            var bestStudentsWithAverages =
-                QueryManager.GetBestStudentsByAverageScore(students, points, NumberOfBestStudentsToTake);
+            var reader = new FileReader();
+            var students = reader.GetList<Student>(StudentJsonPath);
+            var points = reader.GetList<Point>(ScoreJsonPath);
 
-            ConsolePrinter.PrintStudentsWithAverage(bestStudentsWithAverages);
+            var manager = new QueryManager();
+            var bestStudentsWithAverages =
+                manager.Paginate(manager.GetBestStudentsByAverageScore(students, points), NumberOfBestStudentsToTake);
+
+            var consolePrinter = new ConsolePrinter();
+            consolePrinter.PrintStudentsWithAverage(bestStudentsWithAverages);
         }
     }
 }

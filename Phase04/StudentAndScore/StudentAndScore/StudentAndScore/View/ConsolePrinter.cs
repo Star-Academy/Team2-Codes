@@ -6,7 +6,7 @@ namespace StudentAndScore.View
 {
     class ConsolePrinter
     {
-        public static void PrintStudentsWithAverage(List<StudentAverageModel> studentWithAverages)
+        public void PrintStudentsWithAverage(List<StudentAverageModel> studentWithAverages)
         {
             foreach (var studentWithAverage in studentWithAverages)
             {

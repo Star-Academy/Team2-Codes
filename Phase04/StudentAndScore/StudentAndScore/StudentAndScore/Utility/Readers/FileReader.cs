@@ -2,11 +2,11 @@
 using System.IO;
 using System.Text.Json;
 
-namespace StudentAndScore.Utility
+namespace StudentAndScore.Utility.Readers
 {
-    class FileReader
+    class FileReader : IReader
     {
-        public static List<T> GetListFromJsonFile<T>(string path)
+        public List<T> GetList<T>(string path)
         {
             var rawJsonText = File.ReadAllText(path);
             return JsonSerializer.Deserialize<List<T>>(rawJsonText);
