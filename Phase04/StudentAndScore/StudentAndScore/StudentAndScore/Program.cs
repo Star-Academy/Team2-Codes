@@ -19,7 +19,7 @@ namespace StudentAndScore
 
             var manager = new QueryManager();
             var bestStudentsWithAverages =
-                manager.Paginate(manager.GetBestStudentsByAverageScore(students, points), NumberOfBestStudentsToTake);
+                manager.GetBestStudentsByAverageScore(students, points, NumberOfBestStudentsToTake);
 
             var consolePrinter = new ConsolePrinter();
             consolePrinter.PrintStudentsWithAverage(bestStudentsWithAverages);
