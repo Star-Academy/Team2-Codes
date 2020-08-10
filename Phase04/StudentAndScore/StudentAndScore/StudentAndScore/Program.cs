@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Linq;
 using StudentAndScore.Model;
 using StudentAndScore.Utility;
+using StudentAndScore.View;
 
 namespace StudentAndScore
 {
@@ -18,16 +19,10 @@ namespace StudentAndScore
         {
             var students = FileReader.GetListFromJsonFile<Student>(StudentJsonPath);
             var points = FileReader.GetListFromJsonFile<Point>(ScoreJsonPath);
-
             var bestStudentsWithAverages =
                 QueryManager.GetBestStudentsByAverageScore(students, points, NumberOfBestStudentsToTake);
 
-
-            foreach (var studentWithAverage in bestStudentsWithAverages)
-            {
-                Console.WriteLine(
-                    $"{studentWithAverage.Student.FirstName} {studentWithAverage.Student.LastName} with average {studentWithAverage.Average}");
-            }
+            ConsolePrinter.PrintStudentsWithAverage(bestStudentsWithAverages);
         }
     }
 }
