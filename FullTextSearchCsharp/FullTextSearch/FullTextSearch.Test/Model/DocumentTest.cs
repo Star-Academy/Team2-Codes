@@ -1,14 +1,13 @@
 using System;
 using Xunit;
 
-namespace FullTextSearch.Test
+namespace FullTextSearch.Test.Model
 {
-    public class UnitTest1
+    public class DocumentTest
     {
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
