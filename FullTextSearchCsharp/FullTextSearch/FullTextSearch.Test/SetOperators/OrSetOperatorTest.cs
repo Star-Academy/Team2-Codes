@@ -50,7 +50,7 @@ namespace FullTextSearch.Test.SetOperators
         {
             ISet<string> initial = IndexMap["hello"];
             ISet<string> result =
-                new OrSetOperator().Operate(initial, new HashSet<string> { "hi", "world" }, Indexes);
+                new OrSetOperator().Operate(initial, new List<string> { "hi", "world" }, Indexes);
             Check.That(result).IsEquivalentTo("1" , "2" , "3" , "4");
 
         }
@@ -60,53 +60,11 @@ namespace FullTextSearch.Test.SetOperators
         {
             ISet<string> initial = IndexMap["hi"];
             ISet<string> result =
-                new OrSetOperator().Operate(initial, new HashSet<string> { "world"}, Indexes);
+                new OrSetOperator().Operate(initial, new List<string> { "world"}, Indexes);
             Check.That(result).IsEquivalentTo( "2", "3", "4");
 
 
         }
 
     }
-
-
-    // @Test
-    // public void notEmptyInitialSetCommonElementTest()
-    // {
-    // Set<String> result = new HashSet<>(Arrays.asList("a", "b", "c"));
-    // Set<String> orMask = new HashSet<>(Arrays.asList("a", "b"));
-    // new OrSetOperator().specificOperation(result, orMask);
-    // org.assertj.core.api.Assertions.assertThat(result).containsOnly("a", "b", "c");
-    // }
-    //
-    // @Test
-    // public void notEmptyInitialSetNonCommonElementTest()
-    // {
-    // Set<String> result = new HashSet<>(Arrays.asList("a", "b", "c"));
-    // Set<String> orMask = new HashSet<>(Arrays.asList("d", "e"));
-    // new OrSetOperator().specificOperation(result, orMask);
-    // org.assertj.core.api.Assertions.assertThat(result).containsOnly("a", "b", "c", "d", "e");
-    // }
-    //
-    // @Test
-    // public void EmptyInitialSetTest()
-    // {
-    // Set<String> result = new HashSet<>();
-    // Set<String> orMask = new HashSet<>(Arrays.asList("z", "y"));
-    // new OrSetOperator().specificOperation(result, orMask);
-    // org.assertj.core.api.Assertions.assertThat(result).containsOnly("z", "y");
-    // }
-    //
-    // @Test
-    // public void testFullFunctionalityOfOrOnInvertedIndex()
-    // {
-    // InvertedIndex invertedIndex = mock(InvertedIndex.class);
-    //
-    // when(invertedIndex.getIndices()).thenReturn(indexMap);
-    //
-    // Set<String> initial = indexMap.get("hello");
-    // Set<String> result = new OrSetOperator().operate(initial, Arrays.asList("hi", "world"), invertedIndex);
-    // org.assertj.core.api.Assertions.assertThat(result).containsOnly("1","2","3","4","5");
-    //
-    //
-    // }
 }

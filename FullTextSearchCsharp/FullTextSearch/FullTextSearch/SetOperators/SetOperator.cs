@@ -7,7 +7,7 @@ namespace FullTextSearch.SetOperators
 {
     public abstract class SetOperator
     {
-        public ISet<string> Operate(ISet<string> result, ISet<string> queryWords, InvertedIndex invertedIndex)
+        public ISet<string> Operate(ISet<string> result, List<string> queryWords, InvertedIndex invertedIndex)
         {
             ISet<string> answer = new HashSet<string>(result);
 

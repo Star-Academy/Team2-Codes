@@ -58,7 +58,7 @@ namespace FullTextSearch.Test.SetOperators
         {
             ISet<string> initial = IndexMap["hello"];
             ISet<string> result =
-                new SubtractSetOperator().Operate(initial, new HashSet<string> {"hi", "world"}, Indexes);
+                new SubtractSetOperator().Operate(initial, new List<string> {"hi", "world"}, Indexes);
             Check.That(result).IsEquivalentTo("1");
         }
     }

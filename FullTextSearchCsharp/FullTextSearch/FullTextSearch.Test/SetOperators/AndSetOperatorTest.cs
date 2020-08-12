@@ -26,7 +26,7 @@ namespace FullTextSearch.Test.SetOperators
         {
             ISet<string> initial = IndexMap["hello"];
             ISet<string> result =
-                new AndSetOperator().Operate(initial, new HashSet<string> { "hi", "world" }, Indexes);
+                new AndSetOperator().Operate(initial, new List<string> { "hi", "world" }, Indexes);
             Check.That(result).IsEquivalentTo("2");
         }
     }

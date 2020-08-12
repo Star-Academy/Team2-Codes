@@ -10,7 +10,7 @@ namespace FullTextSearch.Utility
         public List<string> orStrings { get; set; }
         public List<string> subtractStrings { get; set; }
 
-        public void ProcessInput(string input)
+        public virtual void ProcessInput(string input)
         {
             andStrings = ExtractWords(input, "(?: |^)(\\w+)");
             orStrings = ExtractWords(input, "\\+(\\w+)");
