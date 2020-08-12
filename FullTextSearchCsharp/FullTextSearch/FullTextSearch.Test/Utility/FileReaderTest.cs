@@ -19,7 +19,7 @@ namespace FullTextSearch.Test.Utility
         public void ListOfAllDocumentsTest()
         {
             TestFileReader.ListAllFilesInFolder();
-            Check.That(TestFileReader.AllFilesInFolder).ContainsExactly("1.txt", "2.txt", "3.txt");
+            Check.That(TestFileReader.AllFilesInFolder).IsEquivalentTo("1.txt", "2.txt", "3.txt");
         }
 
         [Fact]

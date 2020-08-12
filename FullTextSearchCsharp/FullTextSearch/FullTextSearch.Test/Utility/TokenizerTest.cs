@@ -22,7 +22,7 @@ namespace FullTextSearch.Test.Utility
         {
             string text = "hello world, new, amir. javad (Hi)";
             var tokenized = tokenizer.TokenizeContent(text);
-            Check.That(tokenized).ContainsExactly("hello", "world", "new", "amir", "javad", "Hi");
+            Check.That(tokenized).IsEquivalentTo("hello", "world", "new", "amir", "javad", "Hi");
         }
 
         [Fact]
