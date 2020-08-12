@@ -18,7 +18,35 @@ namespace FullTextSearch.Test.Utility
         private InputProcessor inputProcessor;
         private QueryProcessor queryProcessor;
 
-        public void QueryProcessorTestInitializerForTwoParametersTest()
+        [Fact]
+        public void PerformSearchTestWithOneParameterConstructorSimpleQuery()
+        {
+            var queryProcessor = new QueryProcessor(GetTestDocuments());
+            var expectedAns = new List<string> {"1.txt", "2.txt", "3.txt"};
+            var actualAns = queryProcessor.PerformSearch(Input2);
+            Assert.Equal(expectedAns, actualAns);
+        }
+
+        [Fact]
+        public void PerformSearchTestWithOneParameterConstructorAdvancedQuery()
+        {
+            var queryProcessor = new QueryProcessor(GetTestDocuments());
+            var expectedAns = new List<string> {"1.txt", "3.txt"};
+            var actualAns = queryProcessor.PerformSearch(Input3);
+            Assert.Equal(expectedAns, actualAns);
+        }
+
+        [Fact]
+        public void PerformSearchTestWithTwoParameterConstructor()
+        {
+            QueryProcessorTestInitializerForTwoParameters();
+            var expectedAns = new List<string> {"1", "4", "5"};
+            var actualAns = queryProcessor.PerformSearch(Input);
+
+            Assert.Equal(expectedAns, actualAns);
+        }
+
+        private void QueryProcessorTestInitializerForTwoParameters()
         {
             indexMap = new Dictionary<string, ISet<string>>();
             CreateSampleMap();
@@ -46,7 +74,7 @@ namespace FullTextSearch.Test.Utility
             return indexes.Object;
         }
 
-        public List<Document> GetTestDocuments()
+        private List<Document> GetTestDocuments()
         {
             var doc1 = new Mock<Document>();
             doc1.SetupAllProperties();
@@ -86,38 +114,6 @@ namespace FullTextSearch.Test.Utility
                     processor.Object.SubtractStrings = new List<string> {"world"};
                 });
             return processor.Object;
-        }
-
-
-        [Fact]
-        public void PerformSearchTestWithOneParameterConstructorSimpleQuery()
-        {
-            var queryProcessor = new QueryProcessor(GetTestDocuments());
-            var expectedAns = new List<string> {"1.txt", "2.txt", "3.txt"};
-            var actualAns = queryProcessor.PerformSearch(Input2);
-            Assert.Equal(expectedAns, actualAns);
-        }
-
-        [Fact]
-        public void PerformSearchTestWithOneParameterConstructorAdvancedQuery()
-        {
-            var queryProcessor = new QueryProcessor(GetTestDocuments());
-            var expectedAns = new List<string> { "1.txt", "3.txt" };
-            var actualAns = queryProcessor.PerformSearch(Input3);
-            Assert.Equal(expectedAns, actualAns);
-        }
-
-
-
-
-        [Fact]
-        public void PerformSearchTestWithTwoParameterConstructor()
-        {
-            QueryProcessorTestInitializerForTwoParametersTest();
-            var expectedAns = new List<string> {"1", "4", "5"};
-            var actualAns = queryProcessor.PerformSearch(Input);
-
-            Assert.Equal(expectedAns, actualAns);
         }
     }
 }
