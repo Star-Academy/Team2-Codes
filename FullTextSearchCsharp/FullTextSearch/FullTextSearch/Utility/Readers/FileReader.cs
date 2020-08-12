@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using FullTextSearch.Model;
 using System.IO;
 using System.Linq;
+using FullTextSearch.Model;
 
-namespace FullTextSearch.Utility
+namespace FullTextSearch.Utility.Readers
 {
     public class FileReader : IReader
     {

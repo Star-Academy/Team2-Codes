@@ -40,8 +40,8 @@ namespace FullTextSearch.Test.Model
         [Fact]
         public void AddMultipleDocuments()
         {
-            var documnets = GetTestDocuments();
-            InvertedIndex.AddWordsOfMultipleDocuments(documnets);
+            var documents = GetTestDocuments();
+            InvertedIndex.AddWordsOfMultipleDocuments(documents);
             Check.That(InvertedIndex.Indexes.Keys).Contains("Hello", "Javad" , "Amir"  , "Jahan" , "World");
             Check.That(InvertedIndex.Indexes["Hello"]).Contains("1","2");
             Check.That(InvertedIndex.Indexes["Amir"]).Contains("3");

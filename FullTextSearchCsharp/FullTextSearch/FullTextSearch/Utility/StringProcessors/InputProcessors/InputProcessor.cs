@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace FullTextSearch.Utility
+namespace FullTextSearch.Utility.StringProcessors.InputProcessor
 {
-    public class InputProcessor
+    public class InputProcessor : IInputProcessor
     {
 
         private static readonly Regex AndRegex = new Regex("(?: |^)(\\w+)");

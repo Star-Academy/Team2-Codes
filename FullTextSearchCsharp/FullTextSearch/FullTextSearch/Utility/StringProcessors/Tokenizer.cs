@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System;
 using FullTextSearch.Model;
 
-namespace FullTextSearch.Utility
+namespace FullTextSearch.Utility.StringProcessors
 {
     public class Tokenizer
     {
-        private readonly char[] separators = {' ', ',', '.', ';', '-', '\'', '(', ')', '\"', '@', '[', ']', '>', '<', '\t', '\n' , '\0'};
+        private readonly char[] separators =
+            {' ', ',', '.', ';', ':', '-', '\'', '(', ')', '\"', '@', '[', ']', '>', '<', '\t', '\n', '\0'};
 
         public ISet<string> TokenizeContent(string content)
         {

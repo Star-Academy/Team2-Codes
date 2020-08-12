@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using FullTextSearch.Model;
-using FullTextSearch.Utility;
+using FullTextSearch.Utility.StringProcessors;
 using NFluent;
 using Xunit;
 
-namespace FullTextSearch.Test.Utility
+namespace FullTextSearch.Test.Utility.StringProcessors
 {
     public class TokenizerTest
     {
@@ -20,7 +18,7 @@ namespace FullTextSearch.Test.Utility
         [Fact]
         public void TokenizeContentTest()
         {
-            string text = "hello world, new, amir. javad (Hi)";
+            const string text = "hello world, new, amir. javad (Hi)";
             var tokenized = tokenizer.TokenizeContent(text);
             Check.That(tokenized).IsEquivalentTo("hello", "world", "new", "amir", "javad", "Hi");
         }

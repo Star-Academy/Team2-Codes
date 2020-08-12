@@ -1,10 +1,8 @@
-﻿using System;
-using System.IO;
-using FullTextSearch.Utility;
+﻿using FullTextSearch.Utility.Readers;
 using NFluent;
 using Xunit;
 
-namespace FullTextSearch.Test.Utility
+namespace FullTextSearch.Test.Utility.Readers
 {
     public class FileReaderTest
     {
