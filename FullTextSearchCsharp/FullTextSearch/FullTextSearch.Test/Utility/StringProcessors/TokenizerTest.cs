@@ -10,7 +10,7 @@ namespace FullTextSearch.Test.Utility
 {
     public class TokenizerTest
     {
-        private Tokenizer tokenizer;
+        private readonly Tokenizer tokenizer;
 
         public TokenizerTest()
         {

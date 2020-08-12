@@ -13,7 +13,7 @@ namespace FullTextSearch.SetOperators
 
             if (queryWords != null && queryWords.Any())
             {
-                foreach (string word in queryWords)
+                foreach (var word in queryWords)
                 {
                     ISet<string> idSet = new HashSet<string> (invertedIndex.Indexes[word]);
                     if (idSet.Any())

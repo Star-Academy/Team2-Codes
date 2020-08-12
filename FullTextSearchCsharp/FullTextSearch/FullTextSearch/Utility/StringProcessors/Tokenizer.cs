@@ -7,8 +7,7 @@ namespace FullTextSearch.Utility
 {
     public class Tokenizer
     {
-        private readonly char[] separators = new char[]
-            {' ', ',', '.', ';', '-', '\'', '(', ')', '\"', '@', '[', ']', '>', '<', '\t', '\n' , '\0'};
+        private readonly char[] separators = {' ', ',', '.', ';', '-', '\'', '(', ')', '\"', '@', '[', ']', '>', '<', '\t', '\n' , '\0'};
 
         public ISet<string> TokenizeContent(string content)
         {

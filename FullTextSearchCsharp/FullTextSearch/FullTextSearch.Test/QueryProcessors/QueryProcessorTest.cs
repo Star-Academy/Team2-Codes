@@ -1,6 +1,5 @@
 using FullTextSearch.Model;
 using FullTextSearch.Utility;
-using FullTextSearchCsharp.FullTextSearch.FullTextSearch.Utility;
 using Moq;
 using Xunit;
 using System.Collections.Generic;
@@ -49,9 +48,9 @@ namespace FullTextSearch.Test.Utility{
                 .Setup(p => p.ProcessInput(It.IsAny<string>()))
                 .Callback(() => {
                     processor.SetupAllProperties();
-                    processor.Object.andStrings = new List<string> { "hello" };
-                    processor.Object.orStrings = new List<string> { "hi" };
-                    processor.Object.subtractStrings = new List<string> { "world" };
+                    processor.Object.AndStrings = new List<string> { "hello" };
+                    processor.Object.OrStrings = new List<string> { "hi" };
+                    processor.Object.SubtractStrings = new List<string> { "world" };
                 });
             return processor.Object;
         }
