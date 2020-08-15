@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using FullTextSearch.Model;
+﻿using System.Collections.Generic;
 using FullTextSearch.SetOperators;
-using FullTextSearch.Utility;
-using Moq;
 using NFluent;
 using Xunit;
 
@@ -24,8 +19,8 @@ namespace FullTextSearch.Test.SetOperators
         [Fact]
         public void TestFullFunctionalityOfAndOnInvertedIndex()
         {
-            ISet<string> initial = IndexMap["hello"];
-            ISet<string> result =
+            var initial = IndexMap["hello"];
+            var result =
                 new AndSetOperator().Operate(initial, new List<string> { "hi", "world" }, Indexes);
             Check.That(result).IsEquivalentTo("2");
         }

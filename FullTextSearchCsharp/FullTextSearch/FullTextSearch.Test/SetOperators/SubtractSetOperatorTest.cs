@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using FullTextSearch.Model;
+﻿using System.Collections.Generic;
 using FullTextSearch.SetOperators;
-using FullTextSearch.Utility;
-using Moq;
 using NFluent;
 using Xunit;
 
@@ -27,7 +22,7 @@ namespace FullTextSearch.Test.SetOperators
         public void NotEmptyInitialSetSubtractNothing()
         {
             ISet<string> result = new HashSet<string> {"a", "b", "c"};
-            ISet<string> subMask = new HashSet<string> { };
+            ISet<string> subMask = new HashSet<string>();
 
             new SubtractSetOperator().SpecificOperation(result, subMask);
             Check.That(result).IsEquivalentTo("a", "b", "c");
@@ -46,7 +41,7 @@ namespace FullTextSearch.Test.SetOperators
         [Fact]
         public void EmptyInitialSetTest()
         {
-            ISet<string> result = new HashSet<string> { };
+            ISet<string> result = new HashSet<string>();
             ISet<string> subMask = new HashSet<string> {"d", "e"};
 
             new SubtractSetOperator().SpecificOperation(result, subMask);
@@ -56,8 +51,8 @@ namespace FullTextSearch.Test.SetOperators
         [Fact]
         public void TestFullFunctionalityOfSubtractOnInvertedIndex()
         {
-            ISet<string> initial = IndexMap["hello"];
-            ISet<string> result =
+            var initial = IndexMap["hello"];
+            var result =
                 new SubtractSetOperator().Operate(initial, new List<string> {"hi", "world"}, Indexes);
             Check.That(result).IsEquivalentTo("1");
         }

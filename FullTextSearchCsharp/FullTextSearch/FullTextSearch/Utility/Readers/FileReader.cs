@@ -14,25 +14,25 @@ namespace FullTextSearch.Utility.Readers
 
         public FileReader(string filePath)
         {
-            this.FilePath = filePath;
+            FilePath = filePath;
             ListAllFilesInFolder();
         }
 
         public void ListAllFilesInFolder()
         {
-            AllFilesInFolder.UnionWith(Directory.GetFiles(this.FilePath).Select(file => Path.GetFileName(file)));
+            AllFilesInFolder.UnionWith(Directory.GetFiles(FilePath).Select(file => Path.GetFileName(file)));
         }
 
         public string ReadOneFile(string path)
         {
-            var text = File.ReadAllText(this.FilePath + "\\" + path).ToLower();
+            var text = File.ReadAllText(FilePath + "\\" + path).ToLower();
             return text;
         }
 
 
         public List<Document> GetDocuments()
         {
-            List<Document> documents = new List<Document>();
+            var documents = new List<Document>();
             foreach (var filePath in AllFilesInFolder)
             {
                 var text = ReadOneFile(filePath);

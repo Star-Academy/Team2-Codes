@@ -6,7 +6,7 @@ namespace FullTextSearch.Test.Utility.Readers
 {
     public class FileReaderTest
     {
-        private FileReader TestFileReader { get; set; }
+        private FileReader TestFileReader { get; }
 
         public FileReaderTest()
         {
@@ -41,7 +41,7 @@ namespace FullTextSearch.Test.Utility.Readers
         public void ReadOneFile()
         {
             var text = TestFileReader.ReadOneFile("1.txt");
-            var expected = "hello world";
+            const string expected = "hello world";
             Assert.Equal(expected, text);
         }
     }

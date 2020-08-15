@@ -37,9 +37,9 @@ namespace FullTextSearch.Test.Utility.StringProcessors
 
         private List<Document> CreateSampleDocs()
         {
-            Document doc1 = new Document { Id = "1", Content = "hello, world" };
-            Document doc2 = new Document { Id = "2", Content = "salam,', jahanian" };
-            Document doc3 = new Document { Id = "3", Content = "amir,) javad(;" };
+            var doc1 = new Document { Id = "1", Content = "hello, world" };
+            var doc2 = new Document { Id = "2", Content = "salam,', jahanian" };
+            var doc3 = new Document { Id = "3", Content = "amir,) javad(;" };
             return new List<Document> { doc1, doc2, doc3 };
         }
 

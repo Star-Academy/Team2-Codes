@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Xunit;
-using FullTextSearch.Utility.StringProcessors.InputProcessor;
+using FullTextSearch.Utility.StringProcessors.InputProcessors;
+
 namespace FullTextSearch.Test.Utility.StringProcessors.InputProcessors
 {
     public class InputProcessorTest

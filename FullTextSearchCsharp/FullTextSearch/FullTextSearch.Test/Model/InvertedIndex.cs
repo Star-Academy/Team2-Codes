@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 using FullTextSearch.Model;
 using NFluent;
@@ -51,7 +50,7 @@ namespace FullTextSearch.Test.Model
         [Fact]
         public void AddAllWordsOfDocument()
         {
-            List<string> words = new List<string> {"Ali", "Amir", "Javad"};
+            var words = new List<string> {"Ali", "Amir", "Javad"};
             InvertedIndex.AddAllWordsOfDocument(words, "1");
             Check.That(InvertedIndex.Indexes.Keys).Contains("Ali", "Javad");
             Check.That(InvertedIndex.Indexes["Javad"]).Contains("1");
@@ -60,7 +59,7 @@ namespace FullTextSearch.Test.Model
         [Fact]
         public void AddAllWordsOfDocumentThatDoesNotContain()
         {
-            List<string> words = new List<string> {"Ali", "Amir", "Javad"};
+            var words = new List<string> {"Ali", "Amir", "Javad"};
             InvertedIndex.AddAllWordsOfDocument(words, "1");
             Check.That(InvertedIndex.Indexes.Keys).Not.Contains("Ali", "Mohammad");
         }
@@ -69,7 +68,7 @@ namespace FullTextSearch.Test.Model
         [Fact]
         public void AddAllWordsOfDocumentWithWrongId()
         {
-            List<string> words = new List<string> {"Ali", "Amir", "Javad"};
+            var words = new List<string> {"Ali", "Amir", "Javad"};
             InvertedIndex.AddAllWordsOfDocument(words, "1");
             Check.That(InvertedIndex.Indexes["Javad"]).Not.Contains("2");
         }

@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using FullTextSearch.Model;
 using FullTextSearch.SetOperators;
-using FullTextSearch.Utility;
 using FullTextSearch.Utility.StringProcessors;
-using FullTextSearch.Utility.StringProcessors.InputProcessor;
+using FullTextSearch.Utility.StringProcessors.InputProcessors;
 
 namespace FullTextSearch.QueryProcessors
 {
@@ -21,16 +20,16 @@ namespace FullTextSearch.QueryProcessors
         public QueryProcessor(List<Document> documents)
         {
             new Tokenizer().TokenizeAllDocuments(documents);
-            this.InputProcessorProvider = new InputProcessor();
-            this.InvertedIndexProvider = new InvertedIndex();
+            InputProcessorProvider = new InputProcessor();
+            InvertedIndexProvider = new InvertedIndex();
             InvertedIndexProvider.AddWordsOfMultipleDocuments(documents);
         }
 
         public QueryProcessor(InvertedIndex invertedIndex,IInputProcessor inputProcessor )
         {
 
-            this.InputProcessorProvider = inputProcessor;
-            this.InvertedIndexProvider = invertedIndex;
+            InputProcessorProvider = inputProcessor;
+            InvertedIndexProvider = invertedIndex;
         }
 
         public List<string> PerformSearch(string input)
@@ -53,7 +52,7 @@ namespace FullTextSearch.QueryProcessors
             return result;
         }
 
-        public List<string> DoSearchStrategies(ISet<string> result)
+        private List<string> DoSearchStrategies(ISet<string> result)
         {
             // Precedence: AND -> OR -> SUBTRACT
             result = new AndSetOperator().Operate(result, InputProcessorProvider.AndStrings, InvertedIndexProvider);

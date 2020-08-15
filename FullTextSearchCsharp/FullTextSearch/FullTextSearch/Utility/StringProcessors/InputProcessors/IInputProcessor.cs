@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FullTextSearch.Utility.StringProcessors.InputProcessor
+namespace FullTextSearch.Utility.StringProcessors.InputProcessors
 {
     public interface IInputProcessor
     {

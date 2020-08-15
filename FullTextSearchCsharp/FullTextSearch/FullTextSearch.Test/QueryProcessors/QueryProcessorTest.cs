@@ -1,12 +1,11 @@
+using System.Collections.Generic;
 using FullTextSearch.Model;
-using FullTextSearch.Utility;
+using FullTextSearch.QueryProcessors;
+using FullTextSearch.Utility.StringProcessors.InputProcessors;
 using Moq;
 using Xunit;
-using System.Collections.Generic;
-using FullTextSearch.QueryProcessors;
-using FullTextSearch.Utility.StringProcessors.InputProcessor;
 
-namespace FullTextSearch.Test.Utility
+namespace FullTextSearch.Test.QueryProcessors
 {
     public class QueryProcessorTest
     {
