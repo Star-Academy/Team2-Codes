@@ -63,5 +63,14 @@ namespace FullTextSearch.Test.SetOperators
 
         }
 
+        [Fact]
+        public void TestFullFunctionalityOfOrOnInvertedIndexWithNullQueryList()
+        {
+            var initial = IndexMap["hello"];
+            var result =
+                new OrSetOperator().Operate(initial, null, Indexes);
+            Check.That(result).IsEquivalentTo("1", "2", "3", "4");
+        }
+
     }
 }

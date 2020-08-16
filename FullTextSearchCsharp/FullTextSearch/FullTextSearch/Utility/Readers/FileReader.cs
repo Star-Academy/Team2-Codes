@@ -10,7 +10,7 @@ namespace FullTextSearch.Utility.Readers
     {
         public string FilePath { get; }
 
-        public ISet<string> AllFilesInFolder { get; } = new HashSet<String>();
+        public ISet<string> AllFilesInFolder { get; } = new HashSet<string>();
 
         public FileReader(string filePath)
         {
@@ -32,13 +32,11 @@ namespace FullTextSearch.Utility.Readers
 
         public List<Document> GetDocuments()
         {
-            var documents = new List<Document>();
-            foreach (var filePath in AllFilesInFolder)
+            var documents = AllFilesInFolder.Select(filePath =>
             {
                 var text = ReadOneFile(filePath);
-                var document = new Document {Id = filePath, Content = text};
-                documents.Add(document);
-            }
+                return new Document() {Id = filePath, Content = text};
+            }).ToList();
 
             return documents;
         }

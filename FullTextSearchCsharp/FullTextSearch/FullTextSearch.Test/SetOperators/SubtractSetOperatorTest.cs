@@ -56,5 +56,14 @@ namespace FullTextSearch.Test.SetOperators
                 new SubtractSetOperator().Operate(initial, new List<string> {"hi", "world"}, Indexes);
             Check.That(result).IsEquivalentTo("1");
         }
+
+        [Fact]
+        public void TestFullFunctionalityOfSubtractOnInvertedIndexWithNullQueryList()
+        {
+            var initial = IndexMap["hello"];
+            var result =
+                new SubtractSetOperator().Operate(initial, null, Indexes);
+            Check.That(result).IsEquivalentTo("1", "2", "3", "4");
+        }
     }
 }

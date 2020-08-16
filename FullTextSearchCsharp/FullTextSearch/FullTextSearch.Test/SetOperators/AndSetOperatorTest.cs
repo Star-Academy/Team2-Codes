@@ -24,5 +24,13 @@ namespace FullTextSearch.Test.SetOperators
                 new AndSetOperator().Operate(initial, new List<string> { "hi", "world" }, Indexes);
             Check.That(result).IsEquivalentTo("2");
         }
+        [Fact]
+        public void TestFullFunctionalityOfAndOnInvertedIndexWithNullQueryList()
+        {
+            var initial = IndexMap["hello"];
+            var result =
+                new AndSetOperator().Operate(initial, null, Indexes);
+            Check.That(result).IsEquivalentTo("1","2","3","4");
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace FullTextSearch.Utility.StringProcessors.InputProcessors
          List<string> SubtractStrings { get; set; }
 
 
-          abstract void ProcessInput(string input);
+         void ProcessInput(string input);
 
 
     }

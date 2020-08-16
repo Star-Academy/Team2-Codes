@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using FullTextSearch.Model;
 
 namespace FullTextSearch.SetOperators
@@ -10,20 +9,18 @@ namespace FullTextSearch.SetOperators
         {
             ISet<string> answer = new HashSet<string>(result);
 
-            if (queryWords != null && queryWords.Any())
+            if (queryWords is null) return answer;
+
+            foreach (var word in queryWords)
             {
-                foreach (var word in queryWords)
+                var idSet = invertedIndex.Indexes[word];
+                if (idSet != null)
                 {
-                    ISet<string> idSet = new HashSet<string> (invertedIndex.Indexes[word]);
-                    if (idSet.Any())
-                    {
-                        SpecificOperation(answer, idSet);
-                    }
+                    SpecificOperation(answer, idSet);
                 }
             }
 
             return answer;
-
         }
 
         public abstract void SpecificOperation(ISet<string> result, ISet<string> idSet);

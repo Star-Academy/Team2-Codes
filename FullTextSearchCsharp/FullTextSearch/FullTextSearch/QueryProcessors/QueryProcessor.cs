@@ -43,7 +43,7 @@ namespace FullTextSearch.QueryProcessors
         {
             /*This method is used so if we have any AND string, it must be assigned to result set.
               Because AND has higher precedence and operating it on empty non initialized don't give us appropriate results.  */
-            ISet<string> result = new HashSet<string>(); 
+            var result = new HashSet<string>(); 
             if (InputProcessorProvider.AndStrings.Any())
             {
                 var firstWordInAndStrings = InputProcessorProvider.AndStrings[0];
@@ -58,7 +58,7 @@ namespace FullTextSearch.QueryProcessors
             result = new AndSetOperator().Operate(result, InputProcessorProvider.AndStrings, InvertedIndexProvider);
             result = new OrSetOperator().Operate(result, InputProcessorProvider.OrStrings, InvertedIndexProvider);
             result = new SubtractSetOperator().Operate(result, InputProcessorProvider.SubtractStrings, InvertedIndexProvider);
-            return result.ToList().OrderBy(i => i).ToList();
+            return result.OrderBy(i => i).ToList();
         }
     }
 }

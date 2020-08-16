@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace FullTextSearch.Model
 {
@@ -7,9 +6,9 @@ namespace FullTextSearch.Model
     {
         public IDictionary<string, ISet<string>> Indexes { get; set; } = new Dictionary<string, ISet<string>>();
 
-        public void AddAllWordsOfDocument(List<string> words, string id)
+        public void AddAllWordsOfDocument(IEnumerable<string> words, string id)
         {
-            if (words.Any())
+            if (words != null)
             {
                 foreach (var word in words)
                 {
@@ -20,11 +19,11 @@ namespace FullTextSearch.Model
 
         public void AddWordsOfMultipleDocuments(List<Document> documents)
         {
-            if (documents.Any())
+            if (documents != null)
             {
                 foreach (var document in documents)
                 {
-                    AddAllWordsOfDocument(document.TokenizedWords.ToList(), document.Id);
+                    AddAllWordsOfDocument(document.TokenizedWords, document.Id);
                 }
             }
         }
