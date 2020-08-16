@@ -17,7 +17,7 @@ namespace FullTextSearch.Model
             }
         }
 
-        public void AddWordsOfMultipleDocuments(List<Document> documents)
+        public void AddWordsOfMultipleDocuments(IEnumerable<Document> documents)
         {
             if (documents != null)
             {
