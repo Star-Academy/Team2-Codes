@@ -22,7 +22,7 @@ jobs:
       id: version
       uses: pozetroninc/github-action-get-latest-release@master
       with:
-        repository: Star-Academy/<repository name>
+        repository: Star-Academy/Team2-Codes
         
         
     - name: Build library and generate NuGet Package
