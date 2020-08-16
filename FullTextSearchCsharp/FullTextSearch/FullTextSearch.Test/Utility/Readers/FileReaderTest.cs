@@ -10,7 +10,7 @@ namespace FullTextSearch.Test.Utility.Readers
 
         public FileReaderTest()
         {
-            TestFileReader = new FileReader(@"..\\..\\..\\..\\resources\\SmallDatabase");
+            TestFileReader = new FileReader(@"../../../../resources\\SmallDatabase");
         }
 
         [Fact]
