@@ -2,9 +2,11 @@ name: build
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - phase05
   pull_request:
-    branches: [ master ]
+    branches:
+      - phase05
     
     
 jobs:
@@ -21,12 +23,12 @@ jobs:
         
     - name: Install dependencies
       run: dotnet restore
-      working-directory: FullTextSearchCsharp\FullTextSearch\FullTextSearch.sln
+      working-directory: ./FullTextSearchCsharp/FullTextSearch/FullTextSearch.sln
       
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: FullTextSearchCsharp\FullTextSearch\FullTextSearch.sln
+      working-directory: ./FullTextSearchCsharp/FullTextSearch/FullTextSearch.sln
       
     - name: Test
       run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-      working-directory: FullTextSearchCsharp\FullTextSearch\FullTextSearch.sln
+      working-directory: ./FullTextSearchCsharp/FullTextSearch/FullTextSearch.sln
