@@ -12,9 +12,7 @@ namespace FullTextSearch.Utility.StringProcessors
 
         public ISet<string> TokenizeContent(string content)
         {
-            var splitted = content.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            
-            return new HashSet<string>(splitted);
+            return content.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToHashSet();
         }
 
         public void TokenizeAllDocuments(List<Document> allDocuments)
