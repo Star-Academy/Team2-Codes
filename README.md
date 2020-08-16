@@ -6,9 +6,17 @@
 
 ## Team Info
 
-**Team Manager (rahbar) : Mahdi Malverdi**
+**Team Manager (rahbar) :
 
-**Team Mentor (hamyar) : Alireza Ziaee**
+* Mahdi Malverdi
+
+
+
+**Team Mentor (hamyar) :
+
+* Alireza Ziaee
+
+
 
 #### Team Members
 * Amirmahdi Namjoo
