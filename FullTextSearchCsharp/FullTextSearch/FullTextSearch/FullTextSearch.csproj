@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 
-
 	<PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-	<PackageId>StarAcademy.Team2.FullTextSearch</PackageId>
-	<Authors>Amirmahdi Namjoo and Mohammad Javad Hezareh</Authors>
-	<Company>Star Academy</Company>
-    <LangVersion>default</LangVersion>
-  </PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<PackageId>StarAcademy.Team2.FullTextSearch</PackageId>
+		<Authors>Amirmahdi Namjoo and Mohammad Javad Hezareh</Authors>
+		<Company>Star Academy</Company>
+		<LangVersion>default</LangVersion>
+	</PropertyGroup>
 
 </Project>

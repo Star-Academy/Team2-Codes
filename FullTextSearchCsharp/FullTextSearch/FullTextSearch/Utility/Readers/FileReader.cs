@@ -25,7 +25,9 @@ namespace FullTextSearch.Utility.Readers
 
         public string ReadOneFile(string path)
         {
-            var text = File.ReadAllText(FilePath + "/" + path).ToLower();
+
+            var text = File.ReadAllText($"{FilePath}/{path}").ToLower();
+            
             return text;
         }
 
@@ -35,7 +37,7 @@ namespace FullTextSearch.Utility.Readers
             var documents = AllFilesInFolder.Select(filePath =>
             {
                 var text = ReadOneFile(filePath);
-                return new Document() {Id = filePath, Content = text};
+                return new Document() { Id = filePath, Content = text };
             }).ToList();
 
             return documents;

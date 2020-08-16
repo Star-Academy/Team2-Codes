@@ -13,8 +13,7 @@ namespace FullTextSearch.SetOperators
 
             foreach (var word in queryWords)
             {
-                var idSet = invertedIndex.Indexes[word];
-                if (idSet != null)
+                if (invertedIndex.Indexes.TryGetValue(word,out var idSet))
                 {
                     SpecificOperation(answer, idSet);
                 }
