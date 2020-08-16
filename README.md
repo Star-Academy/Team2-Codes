@@ -1,3 +1,5 @@
+![build](https://github.com/Star-Academy/Team2-Codes/workflows/build/badge.svg)
+
 # Team2-Codes
 
 ## Team Info
