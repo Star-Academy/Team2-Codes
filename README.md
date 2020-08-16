@@ -36,3 +36,5 @@ Phase 04: C# Introduction
 Phase 05: Full Text Search With C#
 
 Phase 06: CI/CD + Console App
+
+
