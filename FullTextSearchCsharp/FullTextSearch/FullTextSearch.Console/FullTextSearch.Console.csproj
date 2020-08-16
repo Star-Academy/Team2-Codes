@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FullTextSearch\FullTextSearch.csproj" />
+    <PackageReference Include="StarAcademy.Team2.FullTextSearch" Version="1.0.1" />
   </ItemGroup>
+
 
 </Project>

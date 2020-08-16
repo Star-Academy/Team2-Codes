@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using FullTextSearch.QueryProcessors;
+﻿using FullTextSearch.QueryProcessors;
 using FullTextSearch.Utility.Printers;
 using FullTextSearch.Utility.Readers;
 
