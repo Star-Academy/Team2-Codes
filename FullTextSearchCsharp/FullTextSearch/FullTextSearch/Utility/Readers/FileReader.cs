@@ -25,7 +25,9 @@ namespace FullTextSearch.Utility.Readers
 
         public string ReadOneFile(string path)
         {
+
             var text = File.ReadAllText($"{FilePath}/{path}").ToLower();
+            
             return text;
         }
 
