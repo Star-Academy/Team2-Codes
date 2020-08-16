@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using FullTextSearch.Model;
 
 namespace FullTextSearch.SetOperators
@@ -13,8 +15,7 @@ namespace FullTextSearch.SetOperators
 
             foreach (var word in queryWords)
             {
-                var idSet = invertedIndex.Indexes[word];
-                if (idSet != null)
+                if (invertedIndex.Indexes.TryGetValue(word,out var idSet))
                 {
                     SpecificOperation(answer, idSet);
                 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using FullTextSearch.Model;
 using FullTextSearch.SetOperators;
 using FullTextSearch.Utility.StringProcessors;
@@ -25,9 +26,8 @@ namespace FullTextSearch.QueryProcessors
             InvertedIndexProvider.AddWordsOfMultipleDocuments(documents);
         }
 
-        public QueryProcessor(InvertedIndex invertedIndex,IInputProcessor inputProcessor )
+        public QueryProcessor(InvertedIndex invertedIndex, IInputProcessor inputProcessor)
         {
-
             InputProcessorProvider = inputProcessor;
             InvertedIndexProvider = invertedIndex;
         }
@@ -43,12 +43,16 @@ namespace FullTextSearch.QueryProcessors
         {
             /*This method is used so if we have any AND string, it must be assigned to result set.
               Because AND has higher precedence and operating it on empty non initialized don't give us appropriate results.  */
-            var result = new HashSet<string>(); 
+            var result = new HashSet<string>();
             if (InputProcessorProvider.AndStrings.Any())
             {
-                var firstWordInAndStrings = InputProcessorProvider.AndStrings[0];
-                result.UnionWith(InvertedIndexProvider.Indexes[firstWordInAndStrings]);
+                if (InvertedIndexProvider.Indexes.TryGetValue(InputProcessorProvider.AndStrings[0],
+                    out var firstExistingAndIndex))
+                {
+                    result.UnionWith(firstExistingAndIndex);
+                }
             }
+
             return result;
         }
 
@@ -57,7 +61,8 @@ namespace FullTextSearch.QueryProcessors
             // Precedence: AND -> OR -> SUBTRACT
             result = new AndSetOperator().Operate(result, InputProcessorProvider.AndStrings, InvertedIndexProvider);
             result = new OrSetOperator().Operate(result, InputProcessorProvider.OrStrings, InvertedIndexProvider);
-            result = new SubtractSetOperator().Operate(result, InputProcessorProvider.SubtractStrings, InvertedIndexProvider);
+            result = new SubtractSetOperator().Operate(result, InputProcessorProvider.SubtractStrings,
+                InvertedIndexProvider);
             return result.OrderBy(i => i).ToList();
         }
     }
