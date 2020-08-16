@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using FullTextSearch.QueryProcessors;
-using FullTextSearch.Utility.Printer;
+using FullTextSearch.Utility.Printers;
 using FullTextSearch.Utility.Readers;
 
 namespace FullTextSearch.Console
 {
-    class Program
+    static class Program
     {
         private const string address = "../../../../resources/EnglishData";
 

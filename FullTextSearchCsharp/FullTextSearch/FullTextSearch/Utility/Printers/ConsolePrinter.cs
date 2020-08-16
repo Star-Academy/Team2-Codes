@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FullTextSearch.Utility.Printer
+namespace FullTextSearch.Utility.Printers
 {
     public class ConsolePrinter : IPrinter
     {
@@ -8,7 +8,7 @@ namespace FullTextSearch.Utility.Printer
         {
             foreach (var str in strings)
             {
-                System.Console.Write($"{strings} ");
+                System.Console.Write($"{str} ");
             }
 
             System.Console.WriteLine();

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
 using FullTextSearch.Model;
 
 namespace FullTextSearch.SetOperators

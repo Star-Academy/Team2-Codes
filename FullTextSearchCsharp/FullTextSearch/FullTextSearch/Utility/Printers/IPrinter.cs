@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FullTextSearch.Utility.Printer
+namespace FullTextSearch.Utility.Printers
 {
     public interface IPrinter
     {

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using FullTextSearch.Model;
 using FullTextSearch.SetOperators;
 using FullTextSearch.Utility.StringProcessors;
