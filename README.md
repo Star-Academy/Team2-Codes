@@ -6,13 +6,13 @@
 
 ## Team Info
 
-**Team Manager (rahbar) :
+**Team Manager (Rahbar):**
 
 * Mahdi Malverdi
 
 
 
-**Team Mentor (hamyar) :
+**Team Mentor (Hamyar):**
 
 * Alireza Ziaee
 
