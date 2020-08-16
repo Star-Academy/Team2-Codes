@@ -15,6 +15,8 @@
 * Mohammad Javad Hezareh
 
 
+## Phases
+
 Phase 01: Full Text Search with Java
 
 Phase 02: Clean Code + Phase01 Refactorization
