@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FullTextSearch", "FullTextS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FullTextSearch.Test", "FullTextSearch.Test\FullTextSearch.Test.csproj", "{942B4D53-8A80-4ECD-A069-66DCC5DBA21B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullTextSearch.Console", "FullTextSearch.Console\FullTextSearch.Console.csproj", "{73244AA9-410D-4C96-9D77-6ACE7A71926B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{942B4D53-8A80-4ECD-A069-66DCC5DBA21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{942B4D53-8A80-4ECD-A069-66DCC5DBA21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{942B4D53-8A80-4ECD-A069-66DCC5DBA21B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73244AA9-410D-4C96-9D77-6ACE7A71926B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73244AA9-410D-4C96-9D77-6ACE7A71926B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73244AA9-410D-4C96-9D77-6ACE7A71926B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73244AA9-410D-4C96-9D77-6ACE7A71926B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
