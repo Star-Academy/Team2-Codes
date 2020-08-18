@@ -1,5 +1,6 @@
 ![build](https://github.com/Star-Academy/Team2-Codes/workflows/build/badge.svg)
 [![codecov](https://codecov.io/gh/Star-Academy/Team2-Codes/branch/master/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team2-Codes)
+![publish](https://github.com/Star-Academy/Team2-Codes/workflows/publish/badge.svg)
 
 
 # Team2-Codes
