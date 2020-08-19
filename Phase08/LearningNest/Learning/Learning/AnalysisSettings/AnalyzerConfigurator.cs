@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Learning.AnalysisSettings;
+﻿using Learning.AnalysisSettings.Names;
 using Nest;
 
-namespace Learning
+namespace Learning.AnalysisSettings
 {
     internal static class AnalyzerConfigurator
     {
@@ -15,7 +12,7 @@ namespace Learning
             return analyzer
                 .Custom(AnalyzerNames.NGramAnalyzer3_13,
                     s => s.Tokenizer("standard").Filters("lowercase", TokenFiltersNames.NgramTokenizer_3_13))
-                .Custom(AnalyzerNames.EmailAnalyzer, s => s.Tokenizer(TokenizerNames.EmailTokenizer));
+                .Custom(AnalyzerNames.EmailAnalyzer, s => s.Tokenizer(TokenizerNames.EmailTokenizer).Filters("lowercase"));
         }
 
         public static IPromise<ITokenizers> MakeTokenizers(TokenizersDescriptor s)

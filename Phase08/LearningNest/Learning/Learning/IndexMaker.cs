@@ -1,4 +1,6 @@
-﻿using Learning.Model;
+﻿using Learning.AnalysisSettings;
+using Learning.Mapping;
+using Learning.Model;
 using Nest;
 
 namespace Learning
@@ -26,7 +28,18 @@ namespace Learning
 
         private ITypeMapping ConfigureMapping(TypeMappingDescriptor<Person> typeMappingDescriptor)
         {
-            return typeMappingDescriptor.Properties(pr => pr);
+            return typeMappingDescriptor.Properties(pr =>
+                pr.AddPersonAboutMapping()
+                    .AddPersonAddressMapping()
+                    .AddPersonAgeMapping()
+                    .AddPersonCompanyMapping()
+                    .AddPersonCompanyMapping()
+                    .AddPersonEmailMapping()
+                    .AddPersonEyeColorMapping()
+                    .AddPersonGenderMapping()
+                    .AddPersonLocationMapping()
+                    .AddPersonNameMapping()
+                    .AddPersonPhoneMapping());
         }
 
 

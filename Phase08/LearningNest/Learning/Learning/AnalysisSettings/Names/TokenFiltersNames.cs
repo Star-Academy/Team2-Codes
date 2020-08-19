@@ -1,4 +1,4 @@
-﻿namespace Learning.AnalysisSettings
+﻿namespace Learning.AnalysisSettings.Names
 {
     internal static class TokenFiltersNames
     {

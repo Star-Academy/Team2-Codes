@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Learning.AnalysisSettings
+﻿namespace Learning.AnalysisSettings.Names
 {
    internal static class AnalyzerNames
    {
