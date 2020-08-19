@@ -2,6 +2,6 @@
 {
     internal static class TokenFiltersNames
     {
-        public const string NgramTokenizer_3_13 = "ngram-tokenizer-3-13";
+        public const string NgramTokenizerMin3Max13 = "ngram-tokenizer-3-13";
     }
 }

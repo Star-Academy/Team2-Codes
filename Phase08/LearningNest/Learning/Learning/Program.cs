@@ -15,8 +15,11 @@ namespace Learning
             // CreateIndex(); -> For Creating index, uncomment this
             // SendPersonFileToElasticSearch(); -> for bulk sending peoples.json, uncomment this.
 
-           // var response = SampleQueries.BoolQuerySample1(client , IndexName);
-           var response = SampleQueries.MatchQueryWithFuzzinessSample(client , IndexName);
+            // var response = SampleQueries.BoolQuerySample1(client , IndexName);
+            // var response = SampleQueries.MatchQueryWithFuzzinessSample(client , IndexName);
+            // var response = SampleQueries.TermQuerySample(client , IndexName);
+            // var response = SampleQueries.TermsQuerySample(client , IndexName);
+            var response = SampleQueries.GeoDistanceSampleQuerry(client , IndexName); //Output Should be Person with Name Deanne Garrison
 
 
         }

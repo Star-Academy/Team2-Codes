@@ -80,7 +80,7 @@ namespace Learning.Mapping
 
         private static IPromise<IProperties> AddNgramField(PropertiesDescriptor<Person> f)
         {
-            return f.Text(ng => ng.Name("ngram").Analyzer(AnalyzerNames.NGramAnalyzer3_13));
+            return f.Text(ng => ng.Name("ngram").Analyzer(AnalyzerNames.NGramAnalyzerMin3Max13));
         }
     }
 }
