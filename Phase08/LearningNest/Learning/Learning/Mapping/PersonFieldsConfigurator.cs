@@ -1,5 +1,4 @@
-﻿using System.Net;
-using Learning.AnalysisSettings.Names;
+﻿using Learning.AnalysisSettings.Names;
 using Learning.Model;
 using Nest;
 
