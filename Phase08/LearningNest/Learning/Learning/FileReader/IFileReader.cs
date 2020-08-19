@@ -7,6 +7,6 @@ namespace Learning.FileReader
     {
         public string Path { get; set; }
 
-        public List<T> GetList();
+        public IEnumerable<T> GetIEnumerable();
     }
 }

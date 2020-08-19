@@ -1,4 +1,5 @@
-﻿using Learning.AnalysisSettings;
+﻿using Elasticsearch.Net;
+using Learning.AnalysisSettings;
 using Learning.Mapping;
 using Learning.Model;
 using Nest;
@@ -14,10 +15,11 @@ namespace Learning
             client = ElasticClientFactory.CreateElasticClient();
         }
 
-        public void MakeIndex(string indexName)
+        public IElasticsearchResponse MakeIndex(string indexName)
         {
             var response = client.Indices.Create(indexName, s =>
                 s.Settings(ConfigureSettings).Map<Person>(ConfigureMapping));
+            return response;
         }
 
         private IPromise<IIndexSettings> ConfigureSettings(IndexSettingsDescriptor indexSettingsDescriptor)

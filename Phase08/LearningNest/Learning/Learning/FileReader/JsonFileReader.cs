@@ -10,7 +10,7 @@ namespace Learning.FileReader
     {
         public string Path { get; set; }
 
-        public List<T> GetList()
+        public IEnumerable<T> GetIEnumerable()
         {
             var json = File.ReadAllText(Path);
             var list = JsonSerializer.Deserialize<List<T>>(json);
