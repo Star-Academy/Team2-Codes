@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using InvertedIndex.Models;
+﻿using InvertedIndex.Models;
 using Nest;
 
 namespace InvertedIndex.Mapping

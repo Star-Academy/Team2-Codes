@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Elasticsearch.Net;
 using InvertedIndex.Models;
 using InvertedIndex.Utility.InputProcessor;
 using Nest;
@@ -9,7 +8,7 @@ using Validator;
 
 namespace InvertedIndex.QueryProcessor
 {
-    class ElasticQueryProcessor : IQueryProccesor
+    class ElasticQueryProcessor : IQueryProcessor
     {
         public IInputProcessor InputProcessorProvider { get; set; }
         public IElasticClient Client { get; }
