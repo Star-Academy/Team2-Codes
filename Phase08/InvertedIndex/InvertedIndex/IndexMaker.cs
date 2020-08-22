@@ -7,7 +7,7 @@ namespace InvertedIndex
 {
     class IndexMaker
     {
-        private IElasticClient client;
+        private readonly IElasticClient client;
 
         public IndexMaker()
         {
@@ -31,7 +31,7 @@ namespace InvertedIndex
         {
             return typeMappingDescriptor.Properties(pr => pr
                     .AddIdMapping()
-                    .AddConentMapping());
+                    .AddContentMapping());
         }
     }
 }

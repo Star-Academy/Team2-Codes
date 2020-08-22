@@ -4,6 +4,7 @@ using Elasticsearch.Net;
 using InvertedIndex.Models;
 using InvertedIndex.QueryProcessor;
 using InvertedIndex.Utility.Readers;
+using InvertedIndex.View;
 using Nest;
 using Validator;
 
@@ -13,36 +14,41 @@ namespace InvertedIndex
     {
         private static readonly string IndexName = "document_test";
         private static readonly string ResourceAddress = "../../../../resources/EnglishData";
-        private static ElasticValidator ElasticValidatorProvider = new ElasticValidator();
+        private static readonly ConsolePrinter ConsolePrinterProvider = new ConsolePrinter();
 
         public static void Main(string[] args)
         {
-            // var response = InitializeIndex();
-            // var validationResult = ElasticValidatorProvider.ValidateElasticResponse(response);
-            // if (validationResult.IsValid)
-            // {
-            //     Console.WriteLine("Index Created Successfully");
-            // }
-
-            //
-            // var fileReader = new FileReader(ResourceAddress);
-            // var documents = fileReader.GetDocuments();
-            //
-            // var elasticsearchResponse = new Importer<Document>().SendBulk(documents,IndexName);
-
+            InitializeIndex();
             while (true)
             {
                 var inputStr = Console.ReadLine();
-                ElasticQueryProcessor elastic = new ElasticQueryProcessor();
-                var result = elastic.PerformSearch(inputStr, ElasticClientFactory.CreateElasticClient(), IndexName);
+                var elastic =
+                    new ElasticQueryProcessor(ElasticClientFactory.CreateElasticClient(), IndexName);
+                try
+                {
+                    var result = elastic.PerformSearch(inputStr);
+                    ConsolePrinterProvider.ShowResult(result);
+                }
+                catch (Exception e)
+                {
+                    ConsolePrinterProvider.ShowException(e);
+                }
             }
         }
 
-        public static IElasticsearchResponse InitializeIndex()
+        public static void InitializeIndex()
         {
             var indexMaker = new IndexMaker();
             var response = indexMaker.MakeIndex(IndexName);
-            return response;
+            var ValidationResult = ElasticValidator.ValidateElasticResponse(response);
+            if (ValidationResult.IsValid == false)
+            {
+                ConsolePrinterProvider.ShowException(ValidationResult.ElasticException);
+            }
+            else
+            {
+                ConsolePrinterProvider.ShowMessage("Index Made Successfully");
+            }
         }
     }
 }

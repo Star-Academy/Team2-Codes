@@ -1,20 +1,14 @@
-﻿
-using Elasticsearch.Net;
+﻿using Elasticsearch.Net;
 
 namespace Validator
 {
-    public class ElasticValidator
+    public static class ElasticValidator
     {
-        public ValidationResult ValidateElasticResponse(IElasticsearchResponse response)
+        public static ValidationResult ValidateElasticResponse(IElasticsearchResponse response)
         {
-            if (response.ApiCall.Success)
-            {
-                return new ValidationResult { IsValid = true, ElasticException = null };
-            }
-            else
-            {
-                return new ValidationResult { IsValid = false, ElasticException = response.ApiCall.OriginalException };
-            }
+            return response.ApiCall.Success
+                ? new ValidationResult {IsValid = true, ElasticException = null}
+                : new ValidationResult {IsValid = false, ElasticException = response.ApiCall.OriginalException};
         }
     }
 }

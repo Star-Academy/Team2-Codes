@@ -5,6 +5,6 @@ namespace InvertedIndex.QueryProcessor
 {
     public interface IQueryProccesor
     {
-        List<string> PerformSearch(string input, IElasticClient client, string indexName);
+        IEnumerable<string> PerformSearch(string input, int numberToTake = 10);
     }
 }

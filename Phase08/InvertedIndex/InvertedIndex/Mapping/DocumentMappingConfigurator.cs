@@ -14,7 +14,7 @@ namespace InvertedIndex.Mapping
                 t.Name(n => n.Id));
         }
 
-        public static PropertiesDescriptor<Document> AddConentMapping(this PropertiesDescriptor<Document> pr)
+        public static PropertiesDescriptor<Document> AddContentMapping(this PropertiesDescriptor<Document> pr)
         {
             return pr.Text(t =>
                 t.Name(n => n.Content));

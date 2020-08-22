@@ -1,36 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Elasticsearch.Net;
 using InvertedIndex.Models;
 using InvertedIndex.Utility.InputProcessor;
 using Nest;
+using Validator;
 
 namespace InvertedIndex.QueryProcessor
 {
     class ElasticQueryProcessor : IQueryProccesor
     {
         public IInputProcessor InputProcessorProvider { get; set; }
+        public IElasticClient Client { get; }
+        public string IndexName { get; set; }
 
-        public ElasticQueryProcessor()
+        public ElasticQueryProcessor([NotNull] IElasticClient client, string indexName)
         {
             InputProcessorProvider = new InputProcessor();
+            Client = client;
+            IndexName = indexName;
         }
 
-        public List<string> PerformSearch(string input, IElasticClient client, string indexName)
+
+        public IEnumerable<string> PerformSearch(string input , int numberToTake = 10)
         {
             InputProcessorProvider.ProcessInput(input);
-            var andStrings = string.Join(" ", InputProcessorProvider.AndStrings);
-            var orStrings = string.Join(" ", InputProcessorProvider.OrStrings);
-            var subtractStrings = string.Join(" ", InputProcessorProvider.SubtractStrings);
+            QueryContainer query = MakeQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
+                InputProcessorProvider.SubtractStrings);
 
-            QueryContainer query = new BoolQuery
+            var response = Client.Search<Document>(s => s
+                .Index(IndexName)
+                .Query(q => query).Take(numberToTake));
+
+            var responseValidationResult = ElasticValidator.ValidateElasticResponse(response);
+            if (responseValidationResult.IsValid)
+            {
+                var ids = ElasticResponseToEnumerable(response);
+                return ids;
+            }
+            throw responseValidationResult.ElasticException;
+        }
+
+        private IEnumerable<string> ElasticResponseToEnumerable(ISearchResponse<Document> response)
+        {
+            var ids = from doc in response.Documents select doc.Id;
+            return ids.ToList();
+        }
+
+        private QueryContainer MakeQuery(IEnumerable<string> andList, IEnumerable<string> orList,
+            IEnumerable<string> subtractList)
+        {
+            var andStrings = string.Join(" ", andList);
+            var orStrings = string.Join(" ", orList);
+            var subtractStrings = string.Join(" ", subtractList);
+            return new BoolQuery
             {
                 Must = new List<QueryContainer>
                 {
                     new MatchQuery
                     {
                         Field = "content",
-                        Query = andStrings
+                        Query = andStrings,
+                        Operator = Operator.And,
                     }
                 },
                 MustNot = new List<QueryContainer>
@@ -46,16 +78,10 @@ namespace InvertedIndex.QueryProcessor
                     new MatchQuery()
                     {
                         Field = "content",
-                        Query = orStrings
+                        Query = orStrings,
                     }
                 }
             };
-            var response = client.Search<Document>(s => s
-                .Index(indexName)
-                .Query(q => query).Take(10));
-            // Console.WriteLine(myStr);
-
-            return InputProcessorProvider.AndStrings;
         }
     }
 }

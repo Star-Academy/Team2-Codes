@@ -20,7 +20,7 @@ namespace InvertedIndex.Utility.Readers
 
         public void ListAllFilesInFolder()
         {
-            AllFilesInFolder.UnionWith(Directory.GetFiles(FilePath).Select(file => Path.GetFileName(file)));
+            AllFilesInFolder.UnionWith(Directory.GetFiles(FilePath).Select(Path.GetFileName));
         }
 
         public string ReadOneFile(string path)
