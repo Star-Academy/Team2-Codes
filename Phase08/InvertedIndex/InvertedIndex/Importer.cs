@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Elasticsearch.Net;
 using Nest;
 
 namespace InvertedIndex
@@ -13,7 +12,7 @@ namespace InvertedIndex
             client = ElasticClientFactory.CreateElasticClient();
         }
 
-        public IElasticsearchResponse SendBulk(IEnumerable<T> entities, string indexName)
+        public IResponse SendBulk(IEnumerable<T> entities, string indexName)
         {
             var bulk = MakeBulk(entities, indexName);
             var response = client.Bulk(bulk);

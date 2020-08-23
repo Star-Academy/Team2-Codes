@@ -14,7 +14,7 @@ namespace InvertedIndex
             client = ElasticClientFactory.CreateElasticClient();
         }
 
-        public IElasticsearchResponse MakeIndex(string indexName)
+        public IResponse MakeIndex(string indexName)
         {
             var response = client.Indices.Create(indexName, s =>
                 s.Settings(ConfigureSettings).Map<Document>(ConfigureMapping));

@@ -4,6 +4,7 @@ using InvertedIndex.Models;
 using InvertedIndex.QueryProcessor;
 using InvertedIndex.Utility.Readers;
 using InvertedIndex.View;
+using Nest;
 using Validator;
 
 namespace InvertedIndex
@@ -40,12 +41,12 @@ namespace InvertedIndex
             ShowValidationResult(response, "Index Made Successfully");
         }
 
-        public static void ShowValidationResult(IElasticsearchResponse response, string successMessage)
+        public static void ShowValidationResult(IResponse response, string successMessage)
         {
             var validationResult = ElasticValidator.ValidateElasticResponse(response);
             if (!validationResult.IsValid)
             {
-                ConsolePrinterProvider.ShowException(validationResult.ElasticException);
+                ConsolePrinterProvider.ShowException(validationResult.ElasticException,validationResult.HttpStatusCode);
             }
             else
             {

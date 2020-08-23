@@ -5,7 +5,7 @@ namespace InvertedIndex.View
 {
     interface IPrinter
     {
-        public void ShowException(Exception exception);
+        public void ShowException(Exception exception , int? errorCode = null);
         public void ShowMessage(string message);
         public void ShowResult(IEnumerable<string> resultList);
     }

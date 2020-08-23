@@ -5,9 +5,14 @@ namespace InvertedIndex.View
 {
     public class ConsolePrinter : IPrinter
     {
-        public void ShowException(Exception exception)
+        public void ShowException(Exception exception , int? errorCode = null)
         {
+            
             Console.WriteLine("Exception Occured:");
+            if (errorCode != null)
+            {
+                Console.WriteLine($"Error Code: {errorCode}");
+            }
             Console.WriteLine(exception.Message);
             Console.WriteLine("-----------------");
         }
