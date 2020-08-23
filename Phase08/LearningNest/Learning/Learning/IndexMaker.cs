@@ -8,7 +8,7 @@ namespace Learning
 {
     class IndexMaker
     {
-        private IElasticClient client;
+        private readonly IElasticClient client;
 
         public IndexMaker()
         {
