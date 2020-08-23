@@ -1,5 +1,4 @@
-﻿using Elasticsearch.Net;
-using InvertedIndex.Mapping;
+﻿using InvertedIndex.Mapping;
 using InvertedIndex.Models;
 using Nest;
 
