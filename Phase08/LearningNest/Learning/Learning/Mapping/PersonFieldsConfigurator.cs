@@ -10,21 +10,21 @@ namespace Learning.Mapping
         {
             return pr.Text(t =>
                 t.Name(n => n.Name)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
         public static PropertiesDescriptor<Person> AddPersonCompanyMapping(this PropertiesDescriptor<Person> pr)
         {
             return pr.Text(t =>
                 t.Name(n => n.Company)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
         public static PropertiesDescriptor<Person> AddPersonEyeColorMapping(this PropertiesDescriptor<Person> pr)
         {
             return pr.Text(t =>
                 t.Name(n => n.EyeColor)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
 
@@ -32,21 +32,21 @@ namespace Learning.Mapping
         {
             return pr.Text(t =>
                 t.Name(n => n.Address)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
         public static PropertiesDescriptor<Person> AddPersonAboutMapping(this PropertiesDescriptor<Person> pr)
         {
             return pr.Text(t =>
                 t.Name(n => n.About)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
         public static PropertiesDescriptor<Person> AddPersonPhoneMapping(this PropertiesDescriptor<Person> pr)
         {
             return pr.Text(t =>
                 t.Name(n => n.Phone)
-                    .Fields(AddNgramField));
+                    .Fields(AddNgramFieldWithKeyword));
         }
 
         public static PropertiesDescriptor<Person> AddPersonGenderMapping(this PropertiesDescriptor<Person> pr)
@@ -77,9 +77,17 @@ namespace Learning.Mapping
             return f.Text(ng => ng.Name("email").Analyzer(AnalyzerNames.EmailAnalyzer));
         }
 
-        private static IPromise<IProperties> AddNgramField(PropertiesDescriptor<Person> f)
+        private static IPromise<IProperties> AddNgramFieldWithKeyword(PropertiesDescriptor<Person> f)
         {
-            return f.Text(ng => ng.Name("ngram").Analyzer(AnalyzerNames.NGramAnalyzerMin3Max13));
+            return f.Text(ng => ng.Name("ngram").Analyzer(AnalyzerNames.NGramAnalyzerMin3Max13)).Keyword(s=> s.Name("keyword"));
+        }
+
+        public static PropertiesDescriptor<Person> AddPersonRegistrationDateMapping(this PropertiesDescriptor<Person> pr)
+        {
+            return pr.Date(t =>
+                t.Name(n => n.RegistrationDate).Format("yyyy-MM-dd'T'HH:mm:ss"));
         }
     }
 }
+
+

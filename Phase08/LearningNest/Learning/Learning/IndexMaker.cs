@@ -24,7 +24,7 @@ namespace Learning
 
         private IPromise<IIndexSettings> ConfigureSettings(IndexSettingsDescriptor indexSettingsDescriptor)
         {
-            return indexSettingsDescriptor.Setting("max_ngram_diff", 10).Analysis(ConfigureAnalysis);
+            return indexSettingsDescriptor.Setting("max_ngram_diff", 11).Analysis(ConfigureAnalysis);
         }
 
 
@@ -41,7 +41,8 @@ namespace Learning
                     .AddPersonGenderMapping()
                     .AddPersonLocationMapping()
                     .AddPersonNameMapping()
-                    .AddPersonPhoneMapping());
+                    .AddPersonPhoneMapping()
+                    .AddPersonRegistrationDateMapping());
         }
 
 

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Elasticsearch.Net;
 using Learning.Model;
 using Nest;
@@ -7,7 +9,16 @@ namespace Learning
 {
     public class SampleQueries
     {
-        public static IElasticsearchResponse BoolQuerySample1(IElasticClient client, string indexName)
+        private readonly IElasticClient client;
+        private readonly string indexName;
+
+        public SampleQueries(IElasticClient client, string indexName)
+        {
+            this.client = client;
+            this.indexName = indexName;
+        }
+
+        public IElasticsearchResponse BoolQuerySample1()
         {
             QueryContainer query = new BoolQuery
             {
@@ -26,7 +37,7 @@ namespace Learning
             return response;
         }
 
-        public static IElasticsearchResponse MatchQueryWithFuzzinessSample(IElasticClient client, string indexName)
+        public IElasticsearchResponse MatchQueryWithFuzzinessSample()
         {
             QueryContainer query = new MatchQuery()
             {
@@ -41,7 +52,22 @@ namespace Learning
             return response;
         }
 
-        public static IElasticsearchResponse TermQuerySample(IElasticClient client, string indexName)
+        public IElasticsearchResponse FuzzyQuerySample()
+        {
+            QueryContainer query = new FuzzyQuery()
+            {
+                Field = "name",
+                Value = "Syke",
+                Fuzziness = Fuzziness.AutoLength(0, 2)
+            };
+
+            var response = client.Search<Person>(s => s
+                .Index(indexName)
+                .Query(q => query));
+            return response;
+        }
+
+        public IElasticsearchResponse TermQuerySample()
         {
             QueryContainer query = new TermQuery()
             {
@@ -53,12 +79,13 @@ namespace Learning
                 .Query(q => query));
             return response;
         }
-        public static IElasticsearchResponse TermsQuerySample(IElasticClient client, string indexName)
+
+        public IElasticsearchResponse TermsQuerySample()
         {
             QueryContainer query = new TermsQuery()
             {
                 Field = "email.email",
-                Terms = new []
+                Terms = new[]
                 {
                     "deannegarrison@recognia.com",
                     "huberbeard@freakin.com"
@@ -69,7 +96,8 @@ namespace Learning
                 .Query(q => query));
             return response;
         }
-        public static IElasticsearchResponse GeoDistanceSampleQuerry(IElasticClient client, string indexName)
+
+        public IElasticsearchResponse GeoDistanceSampleQuery()
         {
             QueryContainer query = new GeoDistanceQuery()
             {
@@ -84,7 +112,40 @@ namespace Learning
                 .Query(q => query));
             return response;
         }
+
+        public IElasticsearchResponse DateRangeSampleQuery()
+        {
+            QueryContainer query = new DateRangeQuery()
+            {
+                Field = "registrationDate",
+                GreaterThan = DateMath.FromString("2020-07-05T08:29:10"),
+                LessThanOrEqualTo = DateMath.Now,
+            };
+            var response = client.Search<Person>(s => s
+                .Index(indexName)
+                .Query(q => query));
+            return response;
+        }
+
+        public IElasticsearchResponse TermsAggregation()
+        {
+            var response = client.Search<Person>(s => s
+                .Index(indexName).Aggregations(a => a
+                    .Terms("unique_colors", d => d
+                        .Field("eyeColor.keyword"))));
+            return response;
+        }
+
+        public IElasticsearchResponse MultiMatchQuerySample()
+        {
+            var response = client.Search<Person>(s => s
+                .Index(indexName)
+                .Query(q => q.MultiMatch(m =>
+                    m.Fields(f => f
+                            .Field("name")
+                            .Field("address"))
+                        .Query("marshall"))));
+            return response;
+        }
     }
-
-
 }

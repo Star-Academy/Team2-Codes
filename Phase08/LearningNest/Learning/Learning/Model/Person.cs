@@ -26,7 +26,8 @@ namespace Learning.Model
 
         [JsonPropertyName("about")] public string About { get; set; }
 
-        [JsonPropertyName("registration_date")]
+        [JsonPropertyName("registeration_date")]
+        [JsonConverter(typeof(CustomDateFormat))]
         public DateTime RegistrationDate { get; set; }
 
         [Ignore]

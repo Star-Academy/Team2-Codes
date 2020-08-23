@@ -11,27 +11,34 @@ namespace Learning
 
         static void Main(string[] args)
         {
-            var client= ElasticClientFactory.CreateElasticClient();
-            // CreateIndex(); -> For Creating index, uncomment this
-            // SendPersonFileToElasticSearch(); -> for bulk sending peoples.json, uncomment this.
+            var client = ElasticClientFactory.CreateElasticClient();
+            // CreateIndex(); //-> For Creating index, uncomment this
+            // SendPersonFileToElasticSearch(); //-> for bulk sending peoples.json, uncomment this.
 
-            // var response = SampleQueries.BoolQuerySample1(client , IndexName);
-            // var response = SampleQueries.MatchQueryWithFuzzinessSample(client , IndexName);
-            // var response = SampleQueries.TermQuerySample(client , IndexName);
-            // var response = SampleQueries.TermsQuerySample(client , IndexName);
-            var response = SampleQueries.GeoDistanceSampleQuerry(client , IndexName); //Output Should be Person with Name Deanne Garrison
+            var sampleQuery = new SampleQueries(client , IndexName);
+            
+            var response1 = sampleQuery.BoolQuerySample1();
+            var response2 = sampleQuery.MatchQueryWithFuzzinessSample();
+            var response3 = sampleQuery.TermQuerySample();
+            var response4 = sampleQuery.TermsQuerySample();
+            var response5 = sampleQuery.GeoDistanceSampleQuery(); //response5 must include Person with Name Deanne Garrison
+            var response6 = sampleQuery.FuzzyQuerySample();
+            var response7 = sampleQuery.DateRangeSampleQuery();
+            var response8 = sampleQuery.MultiMatchQuerySample();
+            var response9 = sampleQuery.TermsAggregation();
+
 
 
         }
 
         private static void SendPersonFileToElasticSearch()
         {
-            JsonFileReader<Person> jsonFileReader = new JsonFileReader<Person> { Path = PeoplesPath };
+            JsonFileReader<Person> jsonFileReader = new JsonFileReader<Person> {Path = PeoplesPath};
             var persons = jsonFileReader.GetIEnumerable();
 
             var importer = new Importer<Person>();
             var response = importer.SendBulk(persons, IndexName);
-        } 
+        }
 
 
         private static void CreateIndex()
