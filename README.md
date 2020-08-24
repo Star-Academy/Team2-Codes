@@ -26,20 +26,20 @@
 
 ## Phases
 
-Phase 01: Full Text Search with Java
+* Phase 01: Full Text Search with Java
 
-Phase 02: Clean Code + Phase01 Refactorization
+* Phase 02: Clean Code + Phase01 Refactorization
 
-Phase 03: SOLID Principles + Unit Test
+* Phase 03: SOLID Principles + Unit Test
 
-Phase 04: C# Introduction
+* Phase 04: C# Introduction
 
-Phase 05: Full Text Search With C#
+* Phase 05: Full Text Search With C#
 
-Phase 06: CI/CD + Console App
+* Phase 06: CI/CD + Console App
 
-Phase 07: Elasticsearch
+* Phase 07: Elasticsearch
 
-Phase 08: NEST (Elasticsearch .NET Package)
+* Phase 08: NEST (Elasticsearch .NET Package)
 
 
