@@ -5,6 +5,6 @@ namespace InvertedIndex.Utility.Readers
 {
     public interface IReader
     {
-        List<Document> GetDocuments();
+        IEnumerable<Document> GetDocuments();
     }
 }

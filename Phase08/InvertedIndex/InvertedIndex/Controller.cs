@@ -1,5 +1,4 @@
 ﻿using System;
-using Elasticsearch.Net;
 using InvertedIndex.Models;
 using InvertedIndex.QueryProcessor;
 using InvertedIndex.Utility.Readers;

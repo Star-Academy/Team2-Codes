@@ -16,7 +16,7 @@ namespace InvertedIndex.Utility.InputProcessor
         public List<string> SubtractStrings { get; set; } = new List<string>();
 
 
-        public virtual void ProcessInput(string input)
+        public void ProcessInput(string input)
         {
             AndStrings = ExtractWords(input, AndRegex);
             OrStrings = ExtractWords(input, OrRegex);
@@ -25,7 +25,7 @@ namespace InvertedIndex.Utility.InputProcessor
 
         public List<string> ExtractWords(string input, Regex regex)
         {
-            return regex.Matches(input).Cast<Match>().Select(m => m.Groups[1].Value).ToList();
+            return regex.Matches(input).Select(m => m.Groups[1].Value).ToList();
         }
 
     }

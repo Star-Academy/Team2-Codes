@@ -30,12 +30,12 @@ namespace InvertedIndex.Utility.Readers
         }
 
 
-        public List<Document> GetDocuments()
+        public IEnumerable<Document> GetDocuments()
         {
             var documents = AllFilesInFolder.Select(filePath =>
             {
                 var text = ReadOneFile(filePath);
-                return new Document() {Id = filePath, Content = text};
+                return new Document {Id = filePath, Content = text};
             }).ToList();
 
             return documents;

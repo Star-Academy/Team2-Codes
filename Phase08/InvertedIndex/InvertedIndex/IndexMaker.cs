@@ -4,7 +4,7 @@ using Nest;
 
 namespace InvertedIndex
 {
-    class IndexMaker
+    public class IndexMaker
     {
         private readonly IElasticClient client;
 

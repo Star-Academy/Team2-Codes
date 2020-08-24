@@ -8,7 +8,7 @@ using Validator;
 
 namespace InvertedIndex.QueryProcessor
 {
-    class ElasticQueryProcessor : IQueryProcessor
+    public class ElasticQueryProcessor : IQueryProcessor
     {
         public IInputProcessor InputProcessorProvider { get; set; }
         public IElasticClient Client { get; }
@@ -25,7 +25,7 @@ namespace InvertedIndex.QueryProcessor
         public IEnumerable<string> PerformSearch(string input , int numberToTake = 10)
         {
             InputProcessorProvider.ProcessInput(input);
-            QueryContainer query = MakeQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
+            var query = MakeQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
                 InputProcessorProvider.SubtractStrings);
 
             var response = Client.Search<Document>(s => s
@@ -57,7 +57,7 @@ namespace InvertedIndex.QueryProcessor
             {
                 MustNot = new List<QueryContainer>
                 {
-                    new MatchQuery()
+                    new MatchQuery
                     {
                         Field = "content",
                         Query = subtractStrings
@@ -65,20 +65,20 @@ namespace InvertedIndex.QueryProcessor
                 },
                 Should = new List<QueryContainer>
                 {
-                    new BoolQuery()
+                    new BoolQuery
                     {
                         Should = new List<QueryContainer>
                         {
-                            new MatchQuery()
+                            new MatchQuery
                             {
                                 Field = "content",
-                                Query = orStrings,
+                                Query = orStrings
                             },
                             new MatchQuery
                             {
                                 Field = "content",
                                 Query = andStrings,
-                                Operator = Operator.And,
+                                Operator = Operator.And
                             }
                         }
                     }
