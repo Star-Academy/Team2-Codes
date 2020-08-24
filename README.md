@@ -38,4 +38,8 @@ Phase 05: Full Text Search With C#
 
 Phase 06: CI/CD + Console App
 
+Phase 07: Elasticsearch
+
+Phase 08: NEST (Elasticsearch .NET Package)
+
 
