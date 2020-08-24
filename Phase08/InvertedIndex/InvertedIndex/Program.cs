@@ -15,7 +15,7 @@ namespace InvertedIndex
             while (true)
             {
                 var inputStr = Console.ReadLine();
-                controller.Search(inputStr);
+                controller.Search(inputStr,1000);
             }
         }
     }

@@ -55,15 +55,6 @@ namespace InvertedIndex.QueryProcessor
             var subtractStrings = string.Join(" ", subtractList);
             return new BoolQuery
             {
-                Must = new List<QueryContainer>
-                {
-                    new MatchQuery
-                    {
-                        Field = "content",
-                        Query = andStrings,
-                        Operator = Operator.And,
-                    }
-                },
                 MustNot = new List<QueryContainer>
                 {
                     new MatchQuery()
@@ -74,11 +65,24 @@ namespace InvertedIndex.QueryProcessor
                 },
                 Should = new List<QueryContainer>
                 {
-                    new MatchQuery()
+                    new BoolQuery()
                     {
-                        Field = "content",
-                        Query = orStrings,
+                        Should = new List<QueryContainer>
+                        {
+                            new MatchQuery()
+                            {
+                                Field = "content",
+                                Query = orStrings,
+                            },
+                            new MatchQuery
+                            {
+                                Field = "content",
+                                Query = andStrings,
+                                Operator = Operator.And,
+                            }
+                        }
                     }
+                   
                 }
             };
         }

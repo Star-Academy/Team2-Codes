@@ -54,11 +54,11 @@ namespace InvertedIndex
             }
         }
 
-        public void Search(string inputString)
+        public void Search(string inputString , int numberToTake = 10)
         {
             try
             {
-                var result = queryProcessor.PerformSearch(inputString);
+                var result = queryProcessor.PerformSearch(inputString,numberToTake);
                 ConsolePrinterProvider.ShowResult(result);
             }
             catch (Exception e)
