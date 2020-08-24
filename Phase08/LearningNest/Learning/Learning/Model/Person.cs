@@ -36,7 +36,7 @@ namespace Learning.Model
         [JsonPropertyName("longitude")]
         public double Longitude { get; set; }
 
-        private string location = null;
+        private string location;
 
         public string Location
         {

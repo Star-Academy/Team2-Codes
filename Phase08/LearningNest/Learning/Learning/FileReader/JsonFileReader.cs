@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace Learning.FileReader
 {
-    class JsonFileReader<T> : IFileReader<T> where T: class
+    public class JsonFileReader<T> : IFileReader<T> where T: class
     {
         public string Path { get; set; }
 

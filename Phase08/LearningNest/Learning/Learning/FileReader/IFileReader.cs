@@ -2,7 +2,7 @@
 
 namespace Learning.FileReader
 {
-    public interface IFileReader<T> where T : class
+    public interface IFileReader<out T> where T : class
     {
         public string Path { get; set; }
 

@@ -15,14 +15,14 @@ namespace Learning.AnalysisSettings
                 .Custom(AnalyzerNames.EmailAnalyzer, s => s.Tokenizer(TokenizerNames.EmailTokenizer).Filters("lowercase"));
         }
 
-        public static IPromise<ITokenizers> MakeTokenizers(TokenizersDescriptor s)
+        public static IPromise<ITokenizers> MakeTokenizers(TokenizersDescriptor tokenizersDescriptor)
         {
-            return s.UaxEmailUrl(TokenizerNames.EmailTokenizer, s => s);
+            return tokenizersDescriptor.UaxEmailUrl(TokenizerNames.EmailTokenizer, s => s);
         }
 
-        public static IPromise<ITokenFilters> MakeTokenFilters(TokenFiltersDescriptor s)
+        public static IPromise<ITokenFilters> MakeTokenFilters(TokenFiltersDescriptor tokenFiltersDescriptor)
         {
-            return s.NGram(TokenFiltersNames.NgramTokenizerMin3Max13, s => s.MinGram(3)
+            return tokenFiltersDescriptor.NGram(TokenFiltersNames.NgramTokenizerMin3Max13, s => s.MinGram(3)
                 .MaxGram(13));
         }
     }

@@ -6,7 +6,7 @@ using Nest;
 
 namespace Learning
 {
-    class IndexMaker
+    public class IndexMaker
     {
         private readonly IElasticClient client;
 

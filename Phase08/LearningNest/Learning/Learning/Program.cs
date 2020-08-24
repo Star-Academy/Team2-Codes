@@ -33,7 +33,7 @@ namespace Learning
 
         private static void SendPersonFileToElasticSearch()
         {
-            JsonFileReader<Person> jsonFileReader = new JsonFileReader<Person> {Path = PeoplesPath};
+            var jsonFileReader = new JsonFileReader<Person> {Path = PeoplesPath};
             var persons = jsonFileReader.GetIEnumerable();
 
             var importer = new Importer<Person>();

@@ -37,7 +37,7 @@ namespace Learning
 
         public IElasticsearchResponse MatchQueryWithFuzzinessSample()
         {
-            QueryContainer query = new MatchQuery()
+            QueryContainer query = new MatchQuery
             {
                 Field = "name",
                 Query = "Syke",
@@ -52,7 +52,7 @@ namespace Learning
 
         public IElasticsearchResponse FuzzyQuerySample()
         {
-            QueryContainer query = new FuzzyQuery()
+            QueryContainer query = new FuzzyQuery
             {
                 Field = "name",
                 Value = "Syke",
@@ -67,7 +67,7 @@ namespace Learning
 
         public IElasticsearchResponse TermQuerySample()
         {
-            QueryContainer query = new TermQuery()
+            QueryContainer query = new TermQuery
             {
                 Field = "email.email",
                 Value = "deannegarrison@recognia.com"
@@ -80,7 +80,7 @@ namespace Learning
 
         public IElasticsearchResponse TermsQuerySample()
         {
-            QueryContainer query = new TermsQuery()
+            QueryContainer query = new TermsQuery
             {
                 Field = "email.email",
                 Terms = new[]
@@ -97,7 +97,7 @@ namespace Learning
 
         public IElasticsearchResponse GeoDistanceSampleQuery()
         {
-            QueryContainer query = new GeoDistanceQuery()
+            QueryContainer query = new GeoDistanceQuery
             {
                 Field = "location",
                 DistanceType = GeoDistanceType.Arc,
@@ -113,11 +113,11 @@ namespace Learning
 
         public IElasticsearchResponse DateRangeSampleQuery()
         {
-            QueryContainer query = new DateRangeQuery()
+            QueryContainer query = new DateRangeQuery
             {
                 Field = "registrationDate",
                 GreaterThan = DateMath.FromString("2020-07-05T08:29:10"),
-                LessThanOrEqualTo = DateMath.Now,
+                LessThanOrEqualTo = DateMath.Now
             };
             var response = client.Search<Person>(s => s
                 .Index(indexName)
