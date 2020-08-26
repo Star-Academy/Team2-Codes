@@ -4,8 +4,8 @@ namespace InvertedIndex
 {
     public static class Program
     {
-        private static readonly string IndexName = "document_test";
-        private static readonly string ResourceAddress = "../../../../resources/EnglishData";
+        private const string IndexName = "document_test";
+        private const string ResourceAddress = "../../../../resources/EnglishData";
 
         public static void Main(string[] args)
         {

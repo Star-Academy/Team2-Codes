@@ -7,6 +7,8 @@ namespace InvertedIndex
     public class IndexMaker
     {
         private readonly IElasticClient client;
+        private const int MaxNgramDiffValue = 10;
+        private const string MaxNgramDiffElasticName = "max_ngram_diff";
 
         public IndexMaker()
         {
@@ -22,7 +24,7 @@ namespace InvertedIndex
 
         private IPromise<IIndexSettings> ConfigureSettings(IndexSettingsDescriptor indexSettingsDescriptor)
         {
-            return indexSettingsDescriptor.Setting("max_ngram_diff", 10);
+            return indexSettingsDescriptor.Setting(MaxNgramDiffElasticName, MaxNgramDiffValue);
         }
 
 

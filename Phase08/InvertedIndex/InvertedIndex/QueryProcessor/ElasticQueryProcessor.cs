@@ -22,7 +22,7 @@ namespace InvertedIndex.QueryProcessor
         }
 
 
-        public IEnumerable<string> PerformSearch(string input , int numberToTake = 10)
+        public IEnumerable<string> PerformSearch(string input, int numberToTake = 10)
         {
             InputProcessorProvider.ProcessInput(input);
             var query = MakeQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
@@ -38,6 +38,7 @@ namespace InvertedIndex.QueryProcessor
                 var ids = ElasticResponseToEnumerable(response);
                 return ids;
             }
+
             throw responseValidationResult.ElasticException;
         }
 
@@ -53,38 +54,15 @@ namespace InvertedIndex.QueryProcessor
             var andStrings = string.Join(" ", andList);
             var orStrings = string.Join(" ", orList);
             var subtractStrings = string.Join(" ", subtractList);
-            return new BoolQuery
+            var elasticQuery = new BoolQuery
             {
-                MustNot = new List<QueryContainer>
-                {
-                    new MatchQuery
-                    {
-                        Field = "content",
-                        Query = subtractStrings
-                    }
-                },
-                Should = new List<QueryContainer>
-                {
-                    new BoolQuery
-                    {
-                        Should = new List<QueryContainer>
-                        {
-                            new MatchQuery
-                            {
-                                Field = "content",
-                                Query = orStrings
-                            },
-                            new MatchQuery
-                            {
-                                Field = "content",
-                                Query = andStrings,
-                                Operator = Operator.And
-                            }
-                        }
-                    }
-                   
-                }
+                MustNot = new List<QueryContainer>(),
+                Should = new List<QueryContainer>()
             };
+            return elasticQuery.AddMinusWords(subtractStrings)
+                .AddPlusWords(orStrings)
+                .AddNonSignedWords(andStrings);
         }
+
     }
 }

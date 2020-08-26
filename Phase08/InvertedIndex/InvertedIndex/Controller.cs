@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 using InvertedIndex.Models;
 using InvertedIndex.QueryProcessor;
 using InvertedIndex.Utility.Readers;
@@ -57,7 +58,7 @@ namespace InvertedIndex
         {
             try
             {
-                var result = queryProcessor.PerformSearch(inputString,numberToTake);
+                var result = queryProcessor.PerformSearch(inputString,numberToTake).ToImmutableSortedSet();
                 ConsolePrinterProvider.ShowResult(result);
             }
             catch (Exception e)
