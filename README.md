@@ -42,4 +42,5 @@
 
 * Phase 08: NEST (Elasticsearch .NET Package)
 
+* Phase 09: ASP.net Core + Angular
 
