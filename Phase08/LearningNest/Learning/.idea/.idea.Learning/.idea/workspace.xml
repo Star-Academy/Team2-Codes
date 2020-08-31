@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b48f5ab9-1d57-4f4c-84ff-b2d61d665333" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Learning/AnalysisSettings/AnalyzerConfigurator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/AnalysisSettings/AnalyzerConfigurator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/ElasticClientFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/ElasticClientFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/FileReader/IFileReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/FileReader/IFileReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/FileReader/JsonFileReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/FileReader/JsonFileReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/IndexMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/IndexMaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/Model/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Model/Person.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/SampleQueries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/SampleQueries.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Learning/SampleQueries.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/IndexMaker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/AnalysisSettings/AnalyzerConfigurator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/FileReader/JsonFileReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/ElasticClientFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/FileReader/IFileReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/Mapping/PersonFieldsConfigurator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Learning/Model/Person.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Learning/IndexMaker.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gXb2jBpT8Kfou3HZK6h2w0SQL0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Learning" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Learning/Learning.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b48f5ab9-1d57-4f4c-84ff-b2d61d665333" name="Default Changelist" comment="" />
+      <created>1598263678043</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598263678043</updated>
+      <workItem from="1598263687558" duration="825000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
