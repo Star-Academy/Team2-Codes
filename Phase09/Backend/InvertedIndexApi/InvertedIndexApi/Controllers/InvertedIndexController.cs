@@ -24,7 +24,7 @@ namespace InvertedIndexApi.Controllers
 
         [Route("[action]")]
         [HttpGet]
-        public IEnumerable<string> Get(string query , int numberToTake = 10)
+        public IEnumerable<string> Get(string query = "Hello" , int numberToTake = 10)
         {
 
             var result = queryProcessor.PerformSearch(query, numberToTake);
