@@ -34,7 +34,7 @@ namespace FullTextSearch.Utility.Readers
 
         public List<Document> GetDocuments()
         {
-            var documents = AllFilesInFolder.Select(filePath =>
+            var documents = AllFilesInFolder.OrderBy(filePath => filePath).Select(filePath =>
             {
                 var text = ReadOneFile(filePath);
                 return new Document() { Id = filePath, Content = text };
