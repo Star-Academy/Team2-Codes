@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using InvertedIndex.Models;
 using InvertedIndex.QueryProcessor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -8,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace InvertedIndexApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class InvertedIndexController : ControllerBase
     {
         private readonly ILogger<InvertedIndexController> _logger;
@@ -21,14 +22,35 @@ namespace InvertedIndexApi.Controllers
         }
 
 
-        [Route("[action]")]
+        [Route("documents/[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<string>>> Get(string query = "Hello", int numberToTake = 10)
+        public async Task<ActionResult<IEnumerable<string>>> Search(string query = "Hello", int size = 10 , int page = 1)
         {
             try
             {
-                var result = await Task.FromResult(queryProcessor.PerformSearch(query, numberToTake));
+                var result = await Task.FromResult(queryProcessor.PerformSearch(query, size,page));
                 return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
+        [Route("documents/get/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Document>> GetById(int id)
+        {
+            try
+            {
+                var result = await Task.FromResult(queryProcessor.GetDocumentByID(id));
+                if (result != Document.Null)
+                {
+                    return Ok(result);
+                }
+
+                return NotFound();
             }
             catch (Exception e)
             {
