@@ -14,6 +14,7 @@ namespace InvertedIndexApi.Controllers
     {
         private readonly ILogger<InvertedIndexController> _logger;
         private readonly IQueryProcessor queryProcessor;
+        private const string QueryMustNotEmpty = "Query Must not be empty!";
 
         public InvertedIndexController(IQueryProcessor queryProcessor, ILogger<InvertedIndexController> logger)
         {
@@ -24,11 +25,17 @@ namespace InvertedIndexApi.Controllers
 
         [Route("documents/[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<string>>> Search(string query = "Hello", int size = 10 , int page = 1)
+        public async Task<ActionResult<IEnumerable<string>>> Search([FromRoute] string query = "",
+            [FromRoute] int size = 10, [FromRoute] int page = 1)
         {
+            if (string.IsNullOrEmpty(query))
+            {
+                return BadRequest(QueryMustNotEmpty);
+            }
+
             try
             {
-                var result = await Task.FromResult(queryProcessor.PerformSearch(query, size,page));
+                var result = await Task.FromResult(queryProcessor.PerformSearch(query, size, page));
                 return Ok(result);
             }
             catch (Exception e)
@@ -40,7 +47,7 @@ namespace InvertedIndexApi.Controllers
 
         [Route("documents/get/{id}")]
         [HttpGet]
-        public async Task<ActionResult<Document>> GetById(int id)
+        public async Task<ActionResult<Document>> GetById([FromRoute] int id)
         {
             try
             {
