@@ -47,7 +47,7 @@ namespace InvertedIndexApi.Controllers
 
         [Route("documents/get/{id}")]
         [HttpGet]
-        public async Task<ActionResult<Document>> GetById([FromRoute] int id)
+        public async Task<ActionResult<Document>> GetById([FromRoute] string id)
         {
             try
             {

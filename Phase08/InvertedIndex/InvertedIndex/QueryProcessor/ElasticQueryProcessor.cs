@@ -42,12 +42,12 @@ namespace InvertedIndex.QueryProcessor
             throw responseValidationResult.ElasticException;
         }
 
-        public Document GetDocumentByID(int id)
+        public Document GetDocumentByID(string id)
         {
             var query = new TermQuery()
             {
                 Field = "id",
-                Value = id.ToString()
+                Value = id
             };
             var response = Client.Search<Document>(s => s.Index(IndexName).Query(q => query));
             var responseValidationResult = ElasticValidator.ValidateElasticResponse(response);
