@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        table, th, td{
+            border: black 1px solid;
+            border-collapse: collapse;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #male{
+            margin-right: 20px;
+        }
+        #male, #female{
+            margin-left: 1px;
+        }
+    </style>
+</head>
+<body>
+<p> this is <b>bold</b> and this is <i>italic</i> text.</p>
+
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+<br/>
+<form method="post">
+    <label for="name">Name:</label><br/>
+    <input required name="name" id="name" type="text" /><br/>
+    <label for="age-field">Age:</label><br/>
+    <input name="age" id="age-field" type="number" min="0" max="140"/><br/>
+    <label>Gender: </label>
+    <label for = "male">Male</label>
+    <input name="gender" id="male" type="radio"/>
+    <label for = "female">Female</label>
+    <input name="gender" id="female" type="radio"/>
+    <br/>
+    <input name="privacy-policy" id = "privacy-policy" required type="checkbox">
+    <label for = "privacy-policy">I have read and agree to the terms of service and privacy policy</label>
+    <br/>
+    <input type="submit" name="submit" id="submit">
+</form>
+</body>
+</html>
