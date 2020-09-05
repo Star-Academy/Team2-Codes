@@ -3,25 +3,30 @@
 <head>
     <title>Search Engine</title>
     <link rel="stylesheet" href="./home-page-style.css"/>
-	<!--    font awesome for search icon        -->
-	<script src="https://kit.fontawesome.com/c8d5ee614b.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    font awesome for search icon        -->
+    <script src="https://kit.fontawesome.com/c8d5ee614b.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </head>
 <body>
 <div class="main">
-    <div id="card">
+    <div class="card">
         <img id="logo" src="./resources/logo-transparent.png"/>
         <br/>
-		<form method="get" action="#" id="search-form">
-			<div id = "search-input">
-				<i class="fas fa-search search-icon"></i>
-				<input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search()"/>
-				<input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" />
-			</div>
+        <form method="get" action="#" id="search-form">
+            <div id="search-input">
+                <i class="fas fa-search search-icon"></i>
+                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search()"/>
+                <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true"/>
+            </div>
 
-		</form>
+        </form>
 
     </div>
 </div>
+
+<footer>
+    <span class="company-footer">Codestar</span> <span class="authors">Amirmahdi Namjoo & Mohammad Javad Hezareh</span>
+</footer>
 </body>
 </html>
