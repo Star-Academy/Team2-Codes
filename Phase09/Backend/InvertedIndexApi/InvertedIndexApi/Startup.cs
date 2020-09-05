@@ -13,6 +13,7 @@ namespace InvertedIndexApi
     {
         private const string ElasticAddress = "http://localhost:9200/";
         private const string IndexName = "document_test";
+
         public ConnectionSettings GetElasticSetting()
         {
             var uri = new Uri(ElasticAddress);
@@ -42,6 +43,11 @@ namespace InvertedIndexApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
 
             app.UseRouting();
 
