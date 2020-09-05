@@ -1,0 +1,91 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+body {
+    background: #2d2b41;
+    /* background: url(./back1.jpg); */
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+
+/* style of SEARCH part [in result page] */
+
+#search-box {
+    background-color: #1c1a29;
+    margin-top: 40px;
+    margin-left: 205px;
+    width: 1100px;
+    height: 65px;
+    border-radius: 25px;
+    padding: 5px;   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {
+    height: 65px;
+    margin-left: 50px;
+    float: left;
+}
+
+span {
+    display: inline-block;
+    line-height: 65px;
+    align-items: baseline;
+    margin-left: 50px;
+}
+
+input {
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #797a8e;
+    background-color: #797a8e;
+    width: 800px;
+    height: 30px;
+    color: white;
+    padding-left: 10px;
+}
+
+input:hover {
+    background-color: #58596D;
+    border-color: #58596D;
+}
+
+input:focus {
+    outline: none;
+    border-style: solid;    
+    border-color: yellow;
+    background-color: #37384C;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.521);
+}
+
+/* styles of RESULT part */
+
+#result-box {
+    background-color: #1c1a29;
+    margin-top: 20px;
+    margin-left: 255px;
+    width: 1000px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 15px 15px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.result-card {
+    background-color: #797a8e;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.result-card:hover {
+    background-color: #58596D;
+    cursor: pointer;
+}

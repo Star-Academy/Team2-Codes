@@ -1,0 +1,58 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+body {
+    background: #2d2b41;
+    /* background: url(./back1.jpg); */
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+
+#card {
+    background: #1c1a29;
+    border-radius: 40px;
+    width: 800px;
+    height: 430px;
+    margin-left: 340px;
+    margin-top: 125px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#logo {
+    width: 217px;
+    margin: 35px 0 15px;
+}
+
+input {
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #797a8e;
+    background-color: #797a8e;
+    width: 350px;
+    height: 30px;
+    text-align: center;
+    margin-top: 60px;
+    color: white;
+}
+
+input:hover {
+    background-color: #58596D;
+    border-color: #58596D;
+}
+
+input:focus {
+    outline: none;
+    border-style: solid;    
+    border-color: yellow;
+    background-color: #37384C;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.521);
+}
