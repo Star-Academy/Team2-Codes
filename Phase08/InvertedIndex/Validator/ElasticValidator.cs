@@ -46,7 +46,7 @@ namespace Validator
             return new ValidationResult
             {
                 IsValid = false,
-                ElasticException = new ElasticServerException(response.ServerError.ToString()),
+                ElasticException = new ElasticClientException(response.OriginalException.Message),
                 HttpStatusCode = response.ApiCall.HttpStatusCode
             };
         }

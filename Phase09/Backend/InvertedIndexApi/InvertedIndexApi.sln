@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvertedIndexApi", "InvertedIndexApi\InvertedIndexApi.csproj", "{DB3F85A9-DDB5-41CB-99F1-BCA599C932EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvertedIndex", "..\..\..\Phase08\InvertedIndex\InvertedIndex\InvertedIndex.csproj", "{2DBC4502-FC87-40AC-BA6D-7F6331E65155}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validator", "..\..\..\Phase08\InvertedIndex\Validator\Validator.csproj", "{5837908D-5742-4A05-95C3-EBDF3BB9A561}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB3F85A9-DDB5-41CB-99F1-BCA599C932EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3F85A9-DDB5-41CB-99F1-BCA599C932EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3F85A9-DDB5-41CB-99F1-BCA599C932EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3F85A9-DDB5-41CB-99F1-BCA599C932EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DBC4502-FC87-40AC-BA6D-7F6331E65155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DBC4502-FC87-40AC-BA6D-7F6331E65155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DBC4502-FC87-40AC-BA6D-7F6331E65155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DBC4502-FC87-40AC-BA6D-7F6331E65155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5837908D-5742-4A05-95C3-EBDF3BB9A561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5837908D-5742-4A05-95C3-EBDF3BB9A561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5837908D-5742-4A05-95C3-EBDF3BB9A561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5837908D-5742-4A05-95C3-EBDF3BB9A561}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91600E44-4779-47E2-A702-80F2F0A275FF}
+	EndGlobalSection
+EndGlobal

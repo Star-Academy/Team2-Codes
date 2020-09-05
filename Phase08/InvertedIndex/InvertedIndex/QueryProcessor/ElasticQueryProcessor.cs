@@ -22,15 +22,15 @@ namespace InvertedIndex.QueryProcessor
         }
 
 
-        public IEnumerable<string> PerformSearch(string input, int numberToTake = 10)
+        public IEnumerable<string> PerformSearch(string input, int numberToTake = 10, int pageNumber = 1)
         {
             InputProcessorProvider.ProcessInput(input);
-            var query = MakeQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
+            var query = MakeSearchQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
                 InputProcessorProvider.SubtractStrings);
 
             var response = Client.Search<Document>(s => s
                 .Index(IndexName)
-                .Query(q => query).Take(numberToTake));
+                .Query(q => query).From((pageNumber - 1) * numberToTake).Size(numberToTake));
 
             var responseValidationResult = ElasticValidator.ValidateElasticResponse(response);
             if (responseValidationResult.IsValid)
@@ -42,13 +42,35 @@ namespace InvertedIndex.QueryProcessor
             throw responseValidationResult.ElasticException;
         }
 
+        public Document GetDocumentByID(string id)
+        {
+            var query = new TermQuery()
+            {
+                Field = "id",
+                Value = id
+            };
+            var response = Client.Search<Document>(s => s.Index(IndexName).Query(q => query));
+            var responseValidationResult = ElasticValidator.ValidateElasticResponse(response);
+            if (responseValidationResult.IsValid)
+            {
+                if (response.Documents != null && response.Documents.Count != 0)
+                {
+                    return response.Documents.First();
+                }
+
+                return Document.Null;
+            }
+
+            throw responseValidationResult.ElasticException;
+        }
+
         private IEnumerable<string> ElasticResponseToEnumerable(ISearchResponse<Document> response)
         {
             var ids = from doc in response.Documents select doc.Id;
             return ids.ToList();
         }
 
-        private QueryContainer MakeQuery(IEnumerable<string> andList, IEnumerable<string> orList,
+        private QueryContainer MakeSearchQuery(IEnumerable<string> andList, IEnumerable<string> orList,
             IEnumerable<string> subtractList)
         {
             var andStrings = string.Join(" ", andList);
@@ -63,6 +85,5 @@ namespace InvertedIndex.QueryProcessor
                 .AddPlusWords(orStrings)
                 .AddNonSignedWords(andStrings);
         }
-
     }
 }
