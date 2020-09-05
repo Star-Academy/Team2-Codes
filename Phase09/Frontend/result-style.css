@@ -1,12 +1,11 @@
 * {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial ,Georgia, 'Times New Roman', Times, serif;
     font-size: large;
 }
 
 body {
-    background: #2d2b41;
     /* background: url(./back1.jpg); */
-    background-position: center;
+    background: #2d2b41 center;
     background-size: cover;
     margin: 0px;
 }
@@ -15,17 +14,69 @@ body {
 
 #search-box {
     background-color: #1c1a29;
-    margin-top: 40px;
-    margin-left: 205px;
-    width: 1100px;
-    height: 65px;
+    width: 70%;
+    height: 5%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border-radius: 25px;
-    padding: 5px;   
+    padding: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-img {
-    height: 65px;
+#search-input {
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #797a8e;
+    background-color: #797a8e;
+    width: 60%;
+    color: white;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    line-height: 25px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    max-width: 400px;
+}
+
+.search-icon {
+    margin: auto;
+    flex-grow: 1;
+    color: #bbcada;
+}
+
+#query {
+    max-width: 100%;
+    color: white;
+    margin: auto;
+    border: none;
+    flex-grow: 10;
+    outline: none;
+    background-color: transparent;
+}
+
+#query::placeholder {
+    color: ghostwhite;
+    opacity: 1;
+}
+
+
+#search-form{
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+#logo {
+    width: 5%;
+    height: auto;
     margin-left: 50px;
     float: left;
 }
@@ -40,11 +91,10 @@ span {
 input {
     border-radius: 25px;
     border-style: solid;
-    border-width: 1.5px;
+    border-width: 2px;
     border-color: #797a8e;
     background-color: #797a8e;
-    width: 800px;
-    height: 30px;
+    width: 50%;
     color: white;
     padding-left: 10px;
 }
@@ -56,7 +106,7 @@ input:hover {
 
 input:focus {
     outline: none;
-    border-style: solid;    
+    border-style: solid;
     border-color: yellow;
     background-color: #37384C;
 }
@@ -69,9 +119,8 @@ input::placeholder {
 
 #result-box {
     background-color: #1c1a29;
-    margin-top: 20px;
-    margin-left: 255px;
-    width: 1000px;
+    margin: auto;
+    width: 50%;
     border-radius: 20px;
     text-align: center;
     padding: 10px 15px 15px 15px;

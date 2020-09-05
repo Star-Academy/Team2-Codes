@@ -3,16 +3,25 @@
 
 <head>
     <title>Search Engine</title>
-    <link rel="stylesheet" href="./result-style.css" />
+    <link rel="stylesheet" href="./result-style.css"/>
+    <link rel="stylesheet" href="./shared.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    font awesome for search icon        -->
+    <script src="https://kit.fontawesome.com/c8d5ee614b.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </head>
 
 <body>
+<div class="main">
     <div id="search-box">
-        <img src="./resources/logo-transparent.png" height="65px" />
-        <span>
-            <input type="text" placeholder="search" />
-        </span>
+        <form method="get" action="#" id="search-form">
+            <img id="logo" src="./resources/logo-transparent.png" height="65px"/>
+            <span id="search-input">
+                <i class="fas fa-search search-icon"></i>
+                <input autofocus id="query" name="query" type="text" placeholder="Search"/>
+                <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true"/>
+            </span>
+        </form>
     </div>
     <div id="result-box">
         <div class="result-card">
@@ -50,7 +59,21 @@
             <br>
             just to get box bigger
         </div>
+        <div class="result-card">
+            result sample five
+            <br>
+            content of result
+            <br>
+            just to get box bigger
+        </div>
+        <div class="result-card">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dolor fugit ipsam, laudantium nam ratione sint veritatis vitae voluptates?
+        </div>
     </div>
+</div>
+<footer>
+    <span class="company-footer">Codestar</span> <span class="authors">Amirmahdi Namjoo & Mohammad Javad Hezareh</span>
+</footer>
 </body>
 
 </html>
