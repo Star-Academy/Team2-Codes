@@ -24,6 +24,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    position: fixed;
 }
 
 .company-footer {

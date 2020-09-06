@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Search Engine</title>
-    <link rel="stylesheet" href="./home-page-style.css"/>
+    <link rel="stylesheet" href="homepage-style.css"/>
     <link rel="stylesheet" href="./shared.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--    font awesome for search icon        -->
@@ -14,14 +14,11 @@
     <div class="card">
         <img id="logo" src="./resources/logo-transparent.png"/>
         <br/>
-        <form target="_blank" method="get" action="#" id="search-form">
             <div id="search-input">
                 <i class="fas fa-search search-icon"></i>
-                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search()"/>
-                <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true"/>
+                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search(event)"/>
             </div>
 
-        </form>
 
     </div>
 </div>

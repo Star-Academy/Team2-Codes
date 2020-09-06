@@ -8,20 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--    font awesome for search icon        -->
     <script src="https://kit.fontawesome.com/c8d5ee614b.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="./result.js"></script>
+    <script src="./homepage.js"></script>
 </head>
 
-<body>
+<body onload = "loadFromSession()">
 <div class="main">
     <div id="search-box">
-        <form method="get" action="#" id="search-form">
             <img id="logo" src="./resources/logo-transparent.png" height="65px"/>
             <span id="search-input">
                 <i class="fas fa-search search-icon"></i>
-                <input autofocus id="query" name="query" type="text" placeholder="Search"/>
-                <input type="submit" style="height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true"/>
+                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search(event)"/>
             </span>
-        </form>
     </div>
     <div id="result-box">
         <div class="result-card">
