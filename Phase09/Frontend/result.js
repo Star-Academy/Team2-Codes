@@ -1,4 +1,8 @@
 function loadFromSession() {
+    let queryString = sessionStorage.getItem("query-string");
+    if (queryString != null) {
+        document.getElementById('query').value = queryString;
+    }
     let docStorage = sessionStorage.getItem("docs");
     document.getElementById("result-box").innerHTML = " "
     if (docStorage != null && docStorage.length !== 0) {

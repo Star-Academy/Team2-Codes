@@ -9,11 +9,12 @@ body {
 /* style of SEARCH part [in result page] */
 
 #search-box {
+    display: flex;
     background-color: #1c1a29;
     width: 70%;
     height: 6%;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
     border-radius: 25px;
     margin-top: 0.75%;

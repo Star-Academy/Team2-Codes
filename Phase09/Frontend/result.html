@@ -18,7 +18,10 @@
             <img id="logo" src="./resources/logo-transparent.png" height="65px"/>
             <span id="search-input">
                 <i class="fas fa-search search-icon"></i>
-                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search(event)"/>
+                <input autofocus id="query" name="query" type="text" placeholder="Search" onkeyup="search(event,true)"/>
+            </span>
+            <span>
+                <input id="page-number" , name="page-number" type="number" value="1" min="1" pattern="\d*" placeholder="Page">
             </span>
     </div>
     <div id="result-box">
