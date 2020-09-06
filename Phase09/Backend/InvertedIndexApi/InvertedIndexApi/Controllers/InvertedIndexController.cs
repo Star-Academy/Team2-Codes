@@ -25,8 +25,8 @@ namespace InvertedIndexApi.Controllers
 
         [Route("documents/[action]")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<string>>> Search([FromRoute] string query = "",
-            [FromRoute] int size = 10, [FromRoute] int page = 1)
+        public async Task<ActionResult<IEnumerable<string>>> Search( string query = "",
+             int size = 10, int page = 1)
         {
             if (string.IsNullOrEmpty(query))
             {
