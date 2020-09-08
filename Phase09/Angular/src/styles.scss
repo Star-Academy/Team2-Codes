@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: #2d2b41;
+    height: auto;
+    text-align: center;
+    align-content: center;
+    margin: 0px;
+}
+
+.main {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    font-family: Arial, Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}

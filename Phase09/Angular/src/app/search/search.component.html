@@ -1,0 +1,10 @@
+<div class="main">
+    <div class="card">
+        <img id="logo" src="../../assets/logo-transparent.png"/>
+        <br/>
+            <div id="search-input">
+                <i class="fas fa-search search-icon"></i>
+                <input autofocus id="query" name="query" type="text" placeholder="Search" [(ngModel)]="query" (keyup)="search($event)"/>
+            </div>
+    </div>
+</div>
