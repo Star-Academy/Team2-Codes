@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SearchService } from '../Services/webConnection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,21 +8,23 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  @Output()
-  public searched = new EventEmitter<string>();
-
   query: string;
-  
-  constructor() { }
+
+  constructor(private service: SearchService, private router: Router) { }
+
+  docIds: string[];
 
   ngOnInit(): void {
   }
 
-  search (event: KeyboardEvent) {
+  search(event: KeyboardEvent) {
     if (event.key === "Enter") {
-      this.searched.emit(this.query);
+      this.service.search(this.query, 1).subscribe(ans => {
+        this.docIds = ans
+        localStorage.setItem('results', this.docIds.join(','));
+        localStorage.setItem('query', this.query);
+        this.router.navigate(['/result']);
+      });
     }
   }
-
-
 }
