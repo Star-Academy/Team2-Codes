@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Document } from '../Models/result-item';
+import { SharedService } from '../Services/sharedService.service';
+import { SearchService } from '../Services/webConnection.service';
 
 @Component({
   selector: 'app-result',
@@ -7,21 +9,19 @@ import { Document } from '../Models/result-item';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
-  docs: Document[];
-  query: string;
+  results: Document[];
 
-  constructor() { }
+  constructor(private sharedService: SharedService, private searchService: SearchService) { }
 
   ngOnInit(): void {
-    let docIds = localStorage.getItem('results').split(',');
-    this.docs = [];
-    for (let doc of docIds) {
-      let temp = new Document();
-      temp.id = doc;
-      temp.content = 'hello world';
-      this.docs.push(temp);
-    }
+    this.results = this.sharedService.getResults();
+  }
 
-    this.query = localStorage.getItem('query');
+  search(query: string) {
+    // console.log(query);
+    let inputParts = query.split(', ');
+    this.searchService.search(inputParts[0], Number.parseInt(inputParts[1])).subscribe(result => {
+      this.results = result;
+    })
   }
 }

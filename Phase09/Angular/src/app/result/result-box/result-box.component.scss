@@ -1,9 +1,10 @@
 #result-box {
     background-color: #1c1a29;
-    margin: 2% auto 10%;
+    margin: 2% auto 5%;
     min-width: 500px;
+    max-width: 1000px;
     border-radius: 20px;
-    text-align: center;
+    text-align: left;
     padding: 10px 15px 15px 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

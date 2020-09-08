@@ -1,4 +1,4 @@
 <div class="main">
-    <app-search-box></app-search-box>
-    <app-result-box [docs]='docs'></app-result-box>
+    <app-search-box (searched)="search($event)"></app-search-box>
+    <app-result-box [results]="results"></app-result-box>
 </div>

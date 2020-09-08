@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ResultBoxComponent implements OnInit {
   @Input()
-  public docs: Document[];
+  public results: Document[];
 
   constructor() { }
 

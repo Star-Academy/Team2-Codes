@@ -59,7 +59,7 @@ namespace InvertedIndex
             try
             {
                 var result = queryProcessor.PerformSearch(inputString,numberToTake).ToImmutableSortedSet();
-                ConsolePrinterProvider.ShowResult(result);
+                //ConsolePrinterProvider.ShowResult(result);
             }
             catch (Exception e)
             {

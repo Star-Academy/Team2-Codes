@@ -5,7 +5,7 @@ namespace InvertedIndex.QueryProcessor
 {
     public interface IQueryProcessor
     {
-        IEnumerable<string> PerformSearch(string input, int numberToTake = 10 , int page = 1);
+        IEnumerable<Document> PerformSearch(string input, int numberToTake = 10 , int page = 1);
         Document GetDocumentByID(string id);
     }
 }

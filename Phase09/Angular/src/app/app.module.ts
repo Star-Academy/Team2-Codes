@@ -12,6 +12,7 @@ import {SearchService} from './Services/webConnection.service';
 import { ResultBoxComponent } from './result/result-box/result-box.component';
 import { SearchBoxComponent } from './result/search-box/search-box.component';
 import { ResultCardComponent } from './result/result-box/result-card/result-card.component';
+import { SharedService } from './Services/sharedService.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { ResultCardComponent } from './result/result-box/result-card/result-card
     FormsModule,
     HttpClientModule
   ],
-  providers: [SearchService],
+  providers: [
+    SearchService,
+    SharedService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

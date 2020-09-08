@@ -22,7 +22,7 @@ namespace InvertedIndex.QueryProcessor
         }
 
 
-        public IEnumerable<string> PerformSearch(string input, int numberToTake = 10, int pageNumber = 1)
+        public IEnumerable<Document> PerformSearch(string input, int numberToTake = 10, int pageNumber = 1)
         {
             InputProcessorProvider.ProcessInput(input);
             var query = MakeSearchQuery(InputProcessorProvider.AndStrings, InputProcessorProvider.OrStrings,
@@ -35,8 +35,9 @@ namespace InvertedIndex.QueryProcessor
             var responseValidationResult = ElasticValidator.ValidateElasticResponse(response);
             if (responseValidationResult.IsValid)
             {
-                var ids = ElasticResponseToEnumerable(response);
-                return ids;
+                // var ids = ElasticResponseToEnumerable(response);
+                // return ids;
+                return response.Documents;
             }
 
             throw responseValidationResult.ElasticException;

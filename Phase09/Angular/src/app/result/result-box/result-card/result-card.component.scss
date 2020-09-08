@@ -4,9 +4,19 @@
     margin: auto;
     margin-top: 10px;
     padding: 5px;
+    position: relative;
 }
 
 .result-card:hover {
     background-color: #58596D;
     cursor: pointer;
+    left: 4px;
+}
+
+span {
+    background-color: #37373f;
+    border-radius: 5px 0px 0px 5px;
+    padding: 2px;
+    margin-right: 5px;
+    color: whitesmoke;
 }

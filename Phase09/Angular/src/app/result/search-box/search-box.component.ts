@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { SharedService } from 'src/app/Services/sharedService.service';
 
 @Component({
   selector: 'app-search-box',
@@ -6,11 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./search-box.component.scss']
 })
 export class SearchBoxComponent implements OnInit {
-  query: string = 'hello';
+  @Output()
+  public searched = new EventEmitter<string>();
+  
+  query: string;
+  pageNum: number = 1;
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
+    this.query = this.sharedService.getQuery();
   }
 
+  checkEnter(event: KeyboardEvent) {
+    if (event.key !== "Enter") return;
+    this.searched.emit(`${this.query}, ${this.pageNum}`);
+  }
 }
